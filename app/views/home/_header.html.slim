@@ -1,0 +1,7 @@
+nav.navbar.navbar-default role="navigation" 
+  .container
+    a.navbar-brand 
+      = I18n.t('application_name')
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      ul.nav.nav-tabs.navbar-right
+        li= active_link_to I18n.t('categories.index'), root_path, active: :exact

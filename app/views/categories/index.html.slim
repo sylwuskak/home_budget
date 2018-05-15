@@ -1,0 +1,10 @@
+.container
+  table.table.table-hover
+    thead
+      tr
+        th width="100%" = I18n.t('categories.category_name') 
+    tbody 
+    - @categories.each do |category|
+        tr 
+          td 
+            = category.category_name

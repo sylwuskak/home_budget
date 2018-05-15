@@ -15,5 +15,6 @@
 // require turbolinks
 // require bootstrap-sprockets
 // require bootstrap
+//= require bootstrap/modal
 // require slim
 //= require_tree .
