@@ -51,5 +51,7 @@ gem 'bootstrap-sass', '~> 3.3.7'
 gem 'active_link_to', '~> 1.0.3'
 gem 'http_accept_language'
 
+gem 'devise', '~> 4.2.0'
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

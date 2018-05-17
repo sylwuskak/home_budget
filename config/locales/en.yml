@@ -6,3 +6,19 @@ en:
   categories:
     index: Categories
     category_name: Category name
+
+  user:
+    registration: Registration
+    registration_submit: Submit
+    login: Login 
+    login_submit: Submit
+    logout: Logout
+    edit: Edit user
+    email: E-mail
+    password: Password
+    password_confirmation: Password confirmation
+    current_password: Current password
+    delete_account: Delete account
+    minimum_password_length: "%{minimum_password_length} characters minimum"
+    submit: Submit
+    

@@ -1,7 +1,14 @@
 nav.navbar.navbar-default role="navigation" 
-  .container
+  .container-fluid
     a.navbar-brand 
       = I18n.t('application_name')
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       ul.nav.nav-tabs.navbar-right
-        li= active_link_to I18n.t('categories.index'), root_path, active: :exact
+        - if user_signed_in?
+          li= active_link_to I18n.t('categories.index'), root_path, active: :exact
+          li= active_link_to I18n.t('user.edit'), edit_user_registration_path
+          li= active_link_to I18n.t('user.logout'), destroy_user_session_path, method: :delete
+        - else
+          li= active_link_to I18n.t('user.registration'), new_user_registration_path
+          li= active_link_to I18n.t('user.login'), user_session_path
+        
