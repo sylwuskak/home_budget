@@ -1,11 +1,18 @@
 en:
   application_name: Home budget
+
+  save: Save 
+  cancel: Cancel
+
   welcome:
     web_title: Home budget
+    welcome_message: Hello world 
 
   categories:
     index: Categories
     category_name: Category name
+    add_category: Add category
+    delete_confirmation_message: Are you sure to delete a category?
 
   user:
     registration: Registration

@@ -1,10 +1,28 @@
-.container
-  table.table.table-hover
-    thead
-      tr
-        th width="100%" = I18n.t('categories.category_name') 
-    tbody 
-    - @categories.each do |category|
-        tr 
-          td 
-            = category.category_name
+- if user_signed_in?
+  .panel.panel-default
+    .panel-heading
+      .row
+        .col-md-10
+          = I18n.t('categories.index')
+        .col.md-2
+          .btn-group.pull-right
+            button.btn.btn-xs data-toggle="modal" data-target="#addCategory" type="button"
+              span.glyphicon.glyphicon-plus
+    .panel-body
+      table.table.table-hover
+        thead
+          tr
+            th width="95%" = I18n.t('categories.category_name') 
+            th width="5%"
+        tbody 
+        - @categories.each do |category|
+            tr 
+              td 
+                = category.category_name
+              td 
+                =link_to category_path(category), class: 'btn btn-xs', method: :delete, data: {confirm: I18n.t('categories.delete_confirmation_message')}
+                  span.glyphicon.glyphicon-remove
+  = render "add_category"
+- else
+  h1
+    = I18n.t('welcome.welcome_message')

@@ -1,0 +1,17 @@
+= form_for :category, url: categories_path, turboboost: true, method: :post  do |f|
+  .modal.fade#addCategory tabindex="-1" role="dialog"
+    .modal-dialog role="document"
+      .modal-content
+        .modal-header 
+          = I18n.t('categories.add_category')
+        .modal-body
+          .row
+            .col-md-12
+                .form-group
+                  = f.label :category_name, I18n.t('categories.category_name')
+                  = f.text_field :category_name, class: 'form-control'
+        .modal-footer
+          button.btn.custom-btn type="submit" 
+            = I18n.t('save')
+          button.btn.btn-default data-dismiss="modal" 
+            = I18n.t('cancel')
