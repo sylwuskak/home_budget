@@ -1,13 +1,10 @@
 - if user_signed_in?
   .panel.panel-default
     .panel-heading
-      .row
-        .col-md-10
-          = I18n.t('categories.index')
-        .col.md-2
-          .btn-group.pull-right
-            button.btn.btn-xs data-toggle="modal" data-target="#addCategory" type="button"
-              span.glyphicon.glyphicon-plus
+      = I18n.t('categories.index')
+      .btn-group.pull-right
+        button.btn.btn-xs.custom-btn-lighter data-toggle="modal" data-target="#addCategory" type="button"
+          span.glyphicon.glyphicon-plus
     .panel-body
       table.table.table-hover
         thead

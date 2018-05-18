@@ -1,9 +1,10 @@
-nav.navbar.navbar-default role="navigation" 
+nav.navbar.navbar-default.navbar-static-top role="navigation" 
   .container-fluid
     a.navbar-brand 
+      span.glyphicon.glyphicon-home
       = I18n.t('application_name')
-    #bs-example-navbar-collapse-1.collapse.navbar-collapse
-      ul.nav.nav-tabs.navbar-right
+    .collapse.navbar-collapse
+      ul.nav.navbar-nav
         - if user_signed_in?
           li= active_link_to I18n.t('categories.index'), root_path, active: :exact
           li= active_link_to I18n.t('user.edit'), edit_user_registration_path

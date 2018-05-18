@@ -1,7 +1,9 @@
 class CategoriesController < ApplicationController
   
   def index
-    @categories = current_user.categories
+    if user_signed_in?
+      @categories = current_user.categories
+    end
   end
 
   def create

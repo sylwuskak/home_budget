@@ -1,0 +1,94 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+$custom-violet-dark: #6e22b4;
+$custom-violet: #8b4ec3;
+$custom-violet-light: #d3bce8;
+$custom-violet-super-light: #f0e8f7;
+
+.navbar.navbar-default {
+  background: $custom-violet-dark;
+
+  .navbar-brand{
+    color: $custom-violet-light;
+    font-weight: bold;
+    font-size: 20px;
+    
+    &:hover, &:focus {
+      color: $custom-violet-light;
+    }  
+  }  
+
+  .nav {
+    a.active {
+      background: $custom-violet;
+    }
+
+    > li > a {
+      color: $custom-violet-light;
+      font-weight: bold;
+      font-size: 15px;
+      
+      &:hover, &:focus {
+        background: $custom-violet;
+        color: $custom-violet-light;
+      }  
+    }
+  }
+}
+
+.form-control:focus {
+  border-color: $custom-violet-dark !important;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(110, 34, 180, 0.6) !important;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(110, 34, 180, 0.6) !important;
+}  
+
+.alert.alert-info {
+  color: $custom-violet-dark;
+  background: $custom-violet-super-light;
+  border: $custom-violet-light;
+}
+
+.custom-btn {
+  @include button-variant($custom-violet-light, $custom-violet-dark, $custom-violet-dark);
+
+  &:hover, &:focus, &:active {
+    background: $custom-violet;
+    color: $custom-violet-light !important;
+  }  
+}
+
+.custom-btn-lighter {
+  @include button-variant($custom-violet-light, $custom-violet, $custom-violet);
+
+  &:hover, &:focus, &:active {
+    background: $custom-violet-dark;
+    color: $custom-violet-light !important;
+  }  
+}
+
+.panel-default > .panel-heading {
+  background: $custom-violet !important;
+  color: $custom-violet-super-light !important;
+  font-weight: bold;
+}
+
+.panel-default > .panel-body {
+    background: $custom-violet-super-light !important;
+}
+
+.modal-header {
+  background: $custom-violet;
+  color: $custom-violet-light;
+  font-weight: bold;
+}
+
+.modal-body {
+  background: $custom-violet-super-light;
+}
+  
+.modal-footer {
+  background: $custom-violet-super-light;
+}
+  
+   
