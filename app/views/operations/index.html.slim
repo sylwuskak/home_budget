@@ -1,0 +1,37 @@
+- if user_signed_in?
+  .panel.panel-default
+    .panel-heading
+      = I18n.t('operations.index')
+      .btn-group.pull-right
+        button.btn.btn-xs.custom-btn-lighter data-toggle="modal" data-target="#addOperation" type="button"
+          span.glyphicon.glyphicon-plus
+    .panel-body
+      table.table.table-hover
+        thead
+          tr
+            th width="15%" = I18n.t('operations.date')
+            th width="15%" = I18n.t('operations.type')
+            th width="20%" = I18n.t('operations.category')
+            th width="10%" = I18n.t('operations.amount')
+            th width="35%" = I18n.t('operations.description') 
+            th width="5%"
+        tbody 
+        - @operations.each do |operation|
+            tr 
+              td 
+                = operation.date
+              td 
+                = operation.type
+              td 
+                = operation.category.category_name
+              td 
+                = operation.amount
+              td 
+                = operation.description
+              td 
+                =link_to operation_path(operation), class: 'btn btn-xs', method: :delete, data: {confirm: I18n.t('operations.delete_confirmation_message')}
+                  span.glyphicon.glyphicon-remove
+  = render "add_operation"
+- else
+  h1
+    = I18n.t('welcome.welcome_message')

@@ -30,9 +30,8 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platform: :mri
+group :cli_development do
+  gem 'pry-byebug'
 end
 
 group :development do
@@ -52,6 +51,7 @@ gem 'active_link_to', '~> 1.0.3'
 gem 'http_accept_language'
 
 gem 'devise', '~> 4.2.0'
+gem 'bootstrap-datepicker-rails', '~> 1.6', '>= 1.6.1.1'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

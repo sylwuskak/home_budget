@@ -1,0 +1,2 @@
+class Incoming < Operation
+end

@@ -14,6 +14,18 @@ en:
     add_category: Add category
     delete_confirmation_message: Are you sure to delete a category?
 
+  operations: 
+    index: Operations
+    amount: Amount
+    date: Date
+    type: Type
+    category: Category
+    description: Description
+    add_operation: Add operation
+    delete_confirmation_message: Are you sure to delete an operation?
+    expense: Expense 
+    incoming: Incoming
+
   user:
     registration: Registration
     registration_submit: Submit

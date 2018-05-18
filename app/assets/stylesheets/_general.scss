@@ -59,11 +59,11 @@ $custom-violet-super-light: #f0e8f7;
 }
 
 .custom-btn-lighter {
-  @include button-variant($custom-violet-light, $custom-violet, $custom-violet);
+  @include button-variant($custom-violet-super-light, $custom-violet, $custom-violet);
 
   &:hover, &:focus, &:active {
     background: $custom-violet-dark;
-    color: $custom-violet-light !important;
+    color: $custom-violet-super-light !important;
   }  
 }
 
