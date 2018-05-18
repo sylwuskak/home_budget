@@ -77,6 +77,10 @@ $custom-violet-super-light: #f0e8f7;
     background: $custom-violet-super-light !important;
 }
 
+.panel-default > .panel-footer {
+    background: $custom-violet-super-light !important;
+}
+
 .modal-header {
   background: $custom-violet;
   color: $custom-violet-light;
