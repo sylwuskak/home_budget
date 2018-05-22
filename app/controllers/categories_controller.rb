@@ -19,6 +19,13 @@ class CategoriesController < ApplicationController
     redirect_to categories_path
   end
 
+  def update
+    @category = Category.find(params[:id])
+    @category.update(category_params)
+
+    redirect_to categories_path
+  end
+
 
   private
   def category_params

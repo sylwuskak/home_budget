@@ -1,9 +1,9 @@
-= form_for :category, url: categories_path, turboboost: true, method: :post  do |f|
-  .modal.fade#add_category tabindex="-1" role="dialog"
+= form_for category, url: category_path(category),  turboboost: true, method: :patch  do |f|
+  .modal.fade id="category_edit_#{category.id}" tabindex="-1" role="dialog"
     .modal-dialog role="document"
       .modal-content
         .modal-header 
-          = I18n.t('categories.add_category')
+          = I18n.t('categories.edit_category')
         .modal-body
           .row
             .col-md-12

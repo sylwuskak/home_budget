@@ -3,23 +3,27 @@
     .panel-heading
       = I18n.t('categories.index')
       .btn-group.pull-right
-        button.btn.btn-xs.custom-btn-lighter data-toggle="modal" data-target="#addCategory" type="button"
+        button.btn.btn-xs.custom-btn-lighter data-toggle="modal" data-target="#add_category" type="button"
           span.glyphicon.glyphicon-plus
     .panel-body
       table.table.table-hover
         thead
           tr
-            th width="95%" = I18n.t('categories.category_name') 
-            th width="5%"
+            th width="90%" = I18n.t('categories.category_name') 
+            th width="10%"
         tbody 
         - @categories.each do |category|
             tr 
               td 
                 = category.category_name
               td 
-                =link_to category_path(category), class: 'btn btn-xs', method: :delete, data: {confirm: I18n.t('categories.delete_confirmation_message')}
-                  span.glyphicon.glyphicon-remove
+                .btn-group.pull-right
+                  button.btn.btn-xs.custom-btn data-toggle="modal" data-target="#category_edit_#{category.id}"
+                    span.glyphicon.glyphicon-pencil
+                  =link_to category_path(category), class: 'btn btn-xs custom-btn', method: :delete, data: {confirm: I18n.t('categories.delete_confirmation_message')}
+                    span.glyphicon.glyphicon-remove
   = render "add_category"
+  = render "edit_forms"
 - else
   h1
     = I18n.t('welcome.welcome_message')

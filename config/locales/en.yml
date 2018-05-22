@@ -12,6 +12,7 @@ en:
     index: Categories
     category_name: Category name
     add_category: Add category
+    edit_category: Edit category
     delete_confirmation_message: Are you sure to delete a category?
 
   operations: 

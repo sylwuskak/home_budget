@@ -19,10 +19,24 @@ class OperationsController < ApplicationController
     redirect_to operations_path
   end
 
+  def update
+    @operation = Operation.find(params[:id])
+    @operation.update(operation_edit_params)
+
+    redirect_to operations_path
+  end
 
   private
   def operation_params
     params.require(:operation).permit(:date, :type, :description, :amount, :category_id)
+  end
+
+  def operation_edit_params
+    if @operation.is_a? Expense
+      params.require(:expense).permit(:date, :description, :amount, :category_id)  
+    elsif @operation.is_a? Incoming
+      params.require(:incoming).permit(:date, :description, :amount, :category_id)  
+    end
   end
 
 end
