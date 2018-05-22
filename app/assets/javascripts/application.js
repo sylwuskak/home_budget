@@ -17,6 +17,7 @@
 // require bootstrap
 //= require bootstrap/modal
 //= require bootstrap-datepicker
+//= require bootstrap/alert
 // require slim
 //= require_tree .
 
