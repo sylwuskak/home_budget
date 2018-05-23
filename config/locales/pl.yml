@@ -1,0 +1,48 @@
+pl:
+  application_name: " Home budget"
+
+  save: Zapsiz
+  cancel: Anuluj
+
+  welcome:
+    web_title: Home budget
+    welcome_message: Hello world 
+
+  categories:
+    index: Kategorie
+    category_name: Nazwa
+    category_type: Typ
+    add_category: Dodaj kategorię
+    edit_category: Edytuj kategorię
+    delete_confirmation_message: Czy jesteś pewien, że chcesz usunąć kategorię?
+
+  operations: 
+    index: Operacje
+    amount: Kwota
+    date: Data
+    type: Typ
+    category: Kategoria
+    without_category: Bez kategorii
+    description: Opis
+    add_operation: Dodaj operację
+    delete_confirmation_message: Czy jesteś pewien, że chcesz usunąć operację?
+    expense: Wydatek
+    incoming: Wpływ
+
+  user:
+    registration: Rejestracja
+    registration_submit: Zarejestruj
+    login: Logowanie
+    login_submit: Zaloguj
+    logout: Wyloguj
+    edit: Edycja użytkownika
+    email: E-mail
+    password: Hasło
+    password_confirmation: Potwierdzenie hasła
+    current_password: Obecne hasło
+    delete_account: Usuń konto
+    minimum_password_length: "%{minimum_password_length} characters minimum"
+    submit: Zatwierdź
+    default_categories:
+      expenses: "Żywność i chemia domowa;Dom;Paliwo;Przejazdy;Serwis i części;Dzieci;Edukacja;Elektronika;Multimedia i książki;Odzież i obuwie;Prezenty i wsparcie;Zdrowie i uroda;Płatności;Podróże i wyjazdy;"
+      incomings: "Wynagrodzenie;Premia;Inne wpływy"

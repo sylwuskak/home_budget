@@ -12,13 +12,19 @@
                   = f.text_field :date, class: 'form-control datepicker', data: {provide: 'datepicker'}
             .col-md-6
                 .form-group
+                  
                   = f.label :type, I18n.t('operations.type')
-                  = f.select :type, ['Expense', 'Incoming'].map{|o| [I18n.t("operations.#{o.downcase}", o)]}, {}, {class: 'form-control', disabled: 'true'}
+                  = f.select :type, ['Expense', 'Incoming'].map{|o| [I18n.t("operations.#{o.downcase}"), o]}, {}, {class: 'form-control', disabled: 'true'}
           .row
             .col-md-6
                 .form-group
+                  - ex_cat = current_user.categories.select{|c| c.category_type == 'Expense'}
+                  - in_cat = current_user.categories.select{|c| c.category_type == 'Incoming'}
+                  - grouped_categories = {I18n.t("operations.expense") => ex_cat.map{|c| [c.category_name, c.id]}, I18n.t("operations.incoming") => in_cat.map{|c| [c.category_name, c.id]}}
+                  
                   = f.label :category_id, t('operations.category')
-                  = f.select :category_id, current_user.categories.map{|c| [c.category_name, c.id]}, {}, {class: 'form-control'}
+                  = f.select :category_id, grouped_options_for_select(grouped_categories), {}, {class: 'form-control'}
+
             .col-md-6
                 .form-group
                   = f.label :amount, I18n.t('operations.amount')

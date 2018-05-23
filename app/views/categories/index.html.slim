@@ -18,7 +18,7 @@
               td 
                 = category.category_name
               td 
-                = category.category_type
+                = I18n.t("operations.#{category.category_type.downcase}") 
               td 
                 .btn-group.pull-right
                   button.btn.btn-xs.custom-btn data-toggle="modal" data-target="#category_edit_#{category.id}"

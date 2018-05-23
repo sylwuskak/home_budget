@@ -43,4 +43,7 @@ en:
     delete_account: Delete account
     minimum_password_length: "%{minimum_password_length} characters minimum"
     submit: Submit
+    default_categories:
+      expenses: "Żywność i chemia domowa;Dom;Paliwo;Przejazdy;Serwis i części;Dzieci;Edukacja;Elektronika;Multimedia i książki;Odzież i obuwie;Prezenty i wsparcie;Zdrowie i uroda;Płatności;Podróże i wyjazdy;"
+      incomings: "Wynagrodzenie;Premia;Inne wpływy"
     

@@ -21,7 +21,7 @@
               td 
                 = operation.date
               td 
-                = operation.type
+                = I18n.t("operations.#{operation.type.downcase}") 
               td 
                 = operation.category&.category_name
               td 

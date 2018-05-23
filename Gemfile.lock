@@ -65,10 +65,10 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     crass (1.0.4)
-    devise (4.2.1)
+    devise (4.4.3)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
-      railties (>= 4.1.0, < 5.1)
+      railties (>= 4.1.0, < 6.0)
       responders
       warden (~> 1.2.3)
     erubis (2.7.0)
@@ -205,7 +205,7 @@ DEPENDENCIES
   bootstrap-datepicker-rails (~> 1.6, >= 1.6.1.1)
   bootstrap-sass (~> 3.3.7)
   coffee-rails (~> 4.2)
-  devise (~> 4.2.0)
+  devise (~> 4.4.3)
   http_accept_language
   jbuilder (~> 2.5)
   jquery-rails
@@ -225,4 +225,4 @@ DEPENDENCIES
   web-console
 
 BUNDLED WITH
-   1.16.1
+   1.16.2

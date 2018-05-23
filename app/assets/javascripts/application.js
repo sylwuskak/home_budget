@@ -17,6 +17,7 @@
 // require bootstrap
 //= require bootstrap/modal
 //= require bootstrap-datepicker
+//= require bootstrap/dropdown
 //= require bootstrap/alert
 // require slim
 //= require_tree .
@@ -25,6 +26,7 @@
 $(document).on('ready', function(){
     $('.datepicker').datepicker({
         format: "yyyy-mm-dd",
-        weekStart: 1
+        weekStart: 1,
+        language: locale
     });
 })
