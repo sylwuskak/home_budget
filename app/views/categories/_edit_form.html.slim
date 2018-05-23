@@ -6,10 +6,14 @@
           = I18n.t('categories.edit_category')
         .modal-body
           .row
-            .col-md-12
+            .col-md-6
               .form-group
                 = f.label :category_name, I18n.t('categories.category_name')
                 = f.text_field :category_name, class: 'form-control'
+            .col-md-6
+              .form-group
+                = f.label :category_type, I18n.t('categories.category_type')
+                = f.select :category_type, ['Expense', 'Incoming'].map{|o| [I18n.t("operations.#{o.downcase}", o)]}, {}, {class: 'form-control', disabled: 'true'}
         .modal-footer
           button.btn.custom-btn type="submit" 
             = I18n.t('save')

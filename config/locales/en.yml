@@ -11,6 +11,7 @@ en:
   categories:
     index: Categories
     category_name: Category name
+    category_type: Type
     add_category: Add category
     edit_category: Edit category
     delete_confirmation_message: Are you sure to delete a category?
@@ -21,6 +22,7 @@ en:
     date: Date
     type: Type
     category: Category
+    without_category: Without category
     description: Description
     add_operation: Add operation
     delete_confirmation_message: Are you sure to delete an operation?

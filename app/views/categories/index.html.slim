@@ -9,7 +9,8 @@
       table.table.table-hover
         thead
           tr
-            th width="90%" = I18n.t('categories.category_name') 
+            th width="45%" = I18n.t('categories.category_name') 
+            th width="45%" = I18n.t('categories.category_type') 
             th width="10%"
         tbody 
         - @categories.each do |category|
@@ -17,10 +18,12 @@
               td 
                 = category.category_name
               td 
+                = category.category_type
+              td 
                 .btn-group.pull-right
                   button.btn.btn-xs.custom-btn data-toggle="modal" data-target="#category_edit_#{category.id}"
                     span.glyphicon.glyphicon-pencil
-                  =link_to category_path(category), class: 'btn btn-xs custom-btn', method: :delete, data: {confirm: I18n.t('categories.delete_confirmation_message')}
+                  =link_to category_path(category), class: 'btn btn-xs custom-btn', method: :delete, data: {confirm: I18n.t('categories.delete_confirmation_message')}, disabled: (@categories.where(category_type: category.category_type).length == 1 )
                     span.glyphicon.glyphicon-remove
   = render "add_category"
   = render "edit_forms"
