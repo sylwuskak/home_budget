@@ -28,6 +28,9 @@ pl:
     delete_confirmation_message: Czy jesteś pewien, że chcesz usunąć operację?
     expense: Wydatek
     incoming: Wpływ
+    upload_file: Wgraj wyciąg
+    upload_file_success: Wgrywanie pliku zakończone sukcesem 
+    upload_file_failure: Wgrywanie pliku nie powiodło się 
 
   user:
     registration: Rejestracja

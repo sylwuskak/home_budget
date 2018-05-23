@@ -3,20 +3,23 @@
     .panel-heading
       = I18n.t('operations.index')
       .btn-group.pull-right
-        button.btn.btn-xs.custom-btn-lighter data-toggle="modal" data-target="#addOperation" type="button"
+        button.btn.btn-xs.custom-btn-lighter data-toggle="modal" data-target="#upload_file" type="button"
+          span.glyphicon.glyphicon-cloud-upload
+        button.btn.btn-xs.custom-btn-lighter data-toggle="modal" data-target="#add_operation" type="button"
           span.glyphicon.glyphicon-plus
     .panel-body
-      table.table.table-hover
+      table.table.table-hover 
+        /data-toggle="table" data-search="true" data-pagination="true" data-page-list="[10, 25, 50, 100]"
         thead
           tr
-            th width="15%" = I18n.t('operations.date')
+            th width="10%" = I18n.t('operations.date')
             th width="15%" = I18n.t('operations.type')
             th width="20%" = I18n.t('operations.category')
             th width="10%" = I18n.t('operations.amount')
             th width="30%" = I18n.t('operations.description') 
             th width="10%"
         tbody 
-        - @operations.each do |operation|
+        - @operations.each_with_index do |operation, index|
             tr 
               td 
                 = operation.date
@@ -35,6 +38,7 @@
                   =link_to operation_path(operation), class: 'btn btn-xs custom-btn', method: :delete, data: {confirm: I18n.t('operations.delete_confirmation_message')}
                     span.glyphicon.glyphicon-remove
   = render "add_operation"
+  = render "upload_file"
   = render "edit_forms"
 - else
   h1

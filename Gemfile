@@ -52,6 +52,8 @@ gem 'http_accept_language'
 
 gem 'devise', '~> 4.4.3'
 gem 'bootstrap-datepicker-rails', '~> 1.6', '>= 1.6.1.1'
+gem 'nokogiri', '~> 1.6', '>= 1.6.6.2'
+gem 'bootstrap-table-rails', '~> 1.12', '>= 1.12.1'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

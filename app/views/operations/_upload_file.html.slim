@@ -1,0 +1,16 @@
+= form_tag upload_operations_path, multipart: true
+  .modal.fade#upload_file tabindex="-1" role="dialog"
+    .modal-dialog role="document"
+      .modal-content
+        .modal-header 
+          = I18n.t('operations.upload_file')
+        .modal-body
+          .row
+            .col-md-12
+                .form-group
+                  = file_field_tag 'operations_file', class: 'form-control'
+        .modal-footer
+          button.btn.custom-btn type="submit" 
+            = I18n.t('save')
+          button.btn.btn-default data-dismiss="modal" 
+            = I18n.t('cancel')

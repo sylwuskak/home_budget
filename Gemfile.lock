@@ -53,6 +53,7 @@ GEM
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+    bootstrap-table-rails (1.12.1)
     builder (3.2.3)
     byebug (9.0.6)
     coderay (1.1.2)
@@ -204,12 +205,14 @@ DEPENDENCIES
   active_link_to (~> 1.0.3)
   bootstrap-datepicker-rails (~> 1.6, >= 1.6.1.1)
   bootstrap-sass (~> 3.3.7)
+  bootstrap-table-rails (~> 1.12, >= 1.12.1)
   coffee-rails (~> 4.2)
   devise (~> 4.4.3)
   http_accept_language
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
+  nokogiri (~> 1.6, >= 1.6.6.2)
   pry-byebug
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)

@@ -28,6 +28,9 @@ en:
     delete_confirmation_message: Are you sure to delete an operation?
     expense: Expense 
     incoming: Incoming
+    upload_file: Upload file
+    upload_file_success: File uploaded successfully
+    upload_file_failure: File upload failure
 
   user:
     registration: Registration

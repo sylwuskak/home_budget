@@ -19,6 +19,8 @@
 //= require bootstrap-datepicker
 //= require bootstrap/dropdown
 //= require bootstrap/alert
+//= require bootstrap-table
+//= require locale/bootstrap-table-pl-PL
 // require slim
 //= require_tree .
 
