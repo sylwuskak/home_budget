@@ -1,7 +1,7 @@
 pl:
   application_name: " Home budget"
 
-  save: Zapsiz
+  save: Zapisz
   cancel: Anuluj
 
   welcome:
@@ -12,6 +12,7 @@ pl:
     index: Kategorie
     category_name: Nazwa
     category_type: Typ
+    keyword: Słowa kluczowe
     add_category: Dodaj kategorię
     edit_category: Edytuj kategorię
     delete_confirmation_message: Czy jesteś pewien, że chcesz usunąć kategorię?
@@ -32,6 +33,11 @@ pl:
     upload_file_success: Wgrywanie pliku zakończone sukcesem 
     upload_file_failure: Wgrywanie pliku nie powiodło się 
 
+  configurations: 
+    index: Konfiguracja
+    edit_configuration: Edytuj konfigurację
+    keyword: Słowa kluczowe
+
   user:
     registration: Rejestracja
     registration_submit: Zarejestruj
@@ -47,5 +53,7 @@ pl:
     minimum_password_length: "%{minimum_password_length} characters minimum"
     submit: Zatwierdź
     default_categories:
-      expenses: "Żywność i chemia domowa;Dom;Paliwo;Przejazdy;Serwis i części;Dzieci;Edukacja;Elektronika;Multimedia i książki;Odzież i obuwie;Prezenty i wsparcie;Zdrowie i uroda;Płatności;Podróże i wyjazdy;"
-      incomings: "Wynagrodzenie;Premia;Inne wpływy"
+      expenses: "Inny wydatek;Żywność i chemia domowa;Dom;Paliwo;Przejazdy;Serwis i części;Dzieci;Edukacja;Elektronika;Multimedia i książki;Odzież i obuwie;Prezenty i wsparcie;Zdrowie i uroda;Płatności;Podróże i wyjazdy;"
+      incomings: "Inny przychód;Wynagrodzenie;Premia"
+  
+  

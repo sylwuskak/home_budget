@@ -6,6 +6,8 @@ class Tools::OperationFileImporter
   def initialize(file, current_user)
     @file = Nokogiri::HTML(file, nil, Encoding::UTF_8.to_s)
     @current_user = current_user
+    @categories = current_user.categories 
+    @configuration = current_user.configurations.first
   end
     
   def import
@@ -16,16 +18,42 @@ class Tools::OperationFileImporter
       tds = row.xpath('td')
       date = tds[0].text
       description = tds[2].text
-      amount = tds[3].text.gsub(',', '.').to_f
+      amount = tds[3].text.gsub(',', '.').gsub(' ', '').to_f
 
-      Operation.create!(
-        user: @current_user,
-        category: @current_user.categories.select{|c| (amount > 0) ? c.category_type == 'Incoming' : c.category_type ==  'Expense'}.first,
-        date: date,
-        type: (amount > 0) ? 'Incoming' : 'Expense',
-        amount: amount.abs,
-        description: description
-      )
+      unless check_if_unnecessary(description)
+        category = find_category(description, amount)
+        Operation.create!(
+          user: @current_user,
+          category: category,
+          date: date,
+          type: (amount > 0) ? 'Incoming' : 'Expense',
+          amount: amount.abs,
+          description: description
+        )
+      end
     end
+  end
+
+  def find_category(category_description, amount)
+    correct_categories = @categories.select{|c| (amount > 0) ? c.category_type == 'Incoming' : c.category_type ==  'Expense'} 
+    
+    correct_categories.each do |c|
+      c.keyword.to_s.split(';').each do |k|
+        if category_description.downcase.include? k.downcase
+          return c 
+        end
+      end
+    end
+
+    correct_categories.first
+  end
+
+  def check_if_unnecessary(category_description)
+    @configuration.keyword.to_s.split(';').each do |k|
+      if category_description.downcase.include? k.downcase
+        return true
+      end
+    end
+    false
   end
 end

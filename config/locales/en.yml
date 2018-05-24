@@ -12,6 +12,7 @@ en:
     index: Categories
     category_name: Category name
     category_type: Type
+    keyword: Keywords
     add_category: Add category
     edit_category: Edit category
     delete_confirmation_message: Are you sure to delete a category?
@@ -31,6 +32,11 @@ en:
     upload_file: Upload file
     upload_file_success: File uploaded successfully
     upload_file_failure: File upload failure
+  
+  configurations: 
+    index: Configuration
+    edit_configuration: Edit configuration
+    keyword: Keywords
 
   user:
     registration: Registration

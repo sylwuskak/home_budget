@@ -1,0 +1,17 @@
+= form_for @configuration, url: update_configuration_categories_path(@configuration),  turboboost: true, method: :patch  do |f|
+  .modal.fade#edit_configuration tabindex="-1" role="dialog"
+    .modal-dialog role="document"
+      .modal-content
+        .modal-header 
+          = I18n.t('configurations.edit_configuration')
+        .modal-body
+          .row
+            .col-md-12
+              .form-group
+                = f.label :keyword, I18n.t('configurations.keyword')
+                = f.text_area :keyword, class: 'form-control'  
+        .modal-footer
+          button.btn.custom-btn type="submit" 
+            = I18n.t('save')
+          button.btn.btn-default data-dismiss="modal" 
+            = I18n.t('cancel')

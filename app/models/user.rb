@@ -4,8 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :categories
-  has_many :operations
+  has_many :categories, dependent: :destroy
+  has_many :operations, dependent: :destroy
+  has_many :configurations, dependent: :destroy
 
   after_create :add_default_categories
 
@@ -17,5 +18,7 @@ class User < ApplicationRecord
     I18n.t('user.default_categories.incomings').split(';').each do |incoming|
       Category.create!(category_type: 'Incoming', category_name: incoming, user: self)
     end
+
+    Configuration.create!(user: self, keyword: "")
   end
 end
