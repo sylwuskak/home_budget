@@ -29,6 +29,8 @@ en:
     delete_confirmation_message: Are you sure to delete an operation?
     expense: Expense 
     incoming: Incoming
+    expenses: Expenses
+    incomings: Incomings
     upload_file: Upload file
     upload_file_success: File uploaded successfully
     upload_file_failure: File upload failure
@@ -37,6 +39,9 @@ en:
     index: Configuration
     edit_configuration: Edit configuration
     keyword: Keywords
+
+  statistics:
+    index: Statistics 
 
   user:
     registration: Registration

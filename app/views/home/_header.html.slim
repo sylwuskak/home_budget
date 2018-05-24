@@ -8,6 +8,7 @@ nav.navbar.navbar-default.navbar-static-top role="navigation"
         - if user_signed_in?
           li= active_link_to I18n.t('operations.index'), operations_path
           li= active_link_to I18n.t('categories.index'), root_path, active: :exact
+          li= active_link_to I18n.t('statistics.index'), statistics_path, active: :exact
           li= active_link_to I18n.t('user.edit'), edit_user_registration_path
           li= active_link_to I18n.t('user.logout'), destroy_user_session_path, method: :delete
         - else

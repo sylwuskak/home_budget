@@ -2,13 +2,16 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'categories#index'
   
-  resources :categories, only: [:create, :index, :show, :destroy, :update] do 
+  get 'statistics', to: 'statistics#statistics', as: 'statistics'
+  get 'statistics_image', to: 'statistics#statistics_image', as: 'statistics_image'
+
+  resources :categories, only: [:create, :index, :destroy, :update] do 
     collection do 
       patch 'update_configuration'
     end
   end
 
-  resources :operations, only: [:create, :index, :show, :destroy, :update] do
+  resources :operations, only: [:create, :index, :destroy, :update] do
     collection do 
       post 'upload'
     end
