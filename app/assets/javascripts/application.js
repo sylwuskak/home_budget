@@ -31,4 +31,6 @@ $(document).on('ready', function(){
         weekStart: 1,
         language: locale
     });
+
+    setupCategorySelect();
 })
