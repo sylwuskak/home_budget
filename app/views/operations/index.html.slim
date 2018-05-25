@@ -6,26 +6,25 @@
         span.glyphicon.glyphicon-cloud-upload
       button.btn.btn-xs.custom-btn-lighter data-toggle="modal" data-target="#add_operation" type="button"
         span.glyphicon.glyphicon-plus
-  .panel-body
-    table.table.table-hover 
-      /data-toggle="table" data-search="true" data-pagination="true" data-page-list="[10, 25, 50, 100]"
+  .panel-body      
+    table.table.table-hover data-toggle="table" data-search="true" data-pagination="true" data-page-list="[10, 25, 50, 100]"
       thead
         tr
-          th width="10%" = I18n.t('operations.date')
-          th width="15%" = I18n.t('operations.type')
-          th width="20%" = I18n.t('operations.category')
-          th width="10%" = I18n.t('operations.amount')
-          th width="30%" = I18n.t('operations.description') 
-          th width="10%"
+          th data-width="8%" = I18n.t('operations.date')
+          th data-width="6%" = I18n.t('operations.type')
+          th data-width="17%" = I18n.t('operations.category')
+          th data-width="8%" = I18n.t('operations.amount')
+          th data-width="50%" = I18n.t('operations.description') 
+          th data-width="6%"
       tbody 
-      - @operations.each_with_index do |operation, index|
+        - @operations.each do |operation|
           tr 
-            td 
+            td
               = operation.date
             td 
               = I18n.t("operations.#{operation.type.downcase}") 
             td 
-              = operation.category&.category_name
+              = operation.category.category_name
             td 
               = operation.amount
             td 
@@ -36,6 +35,7 @@
                   span.glyphicon.glyphicon-pencil
                 =link_to operation_path(operation), class: 'btn btn-xs custom-btn', method: :delete, data: {confirm: I18n.t('operations.delete_confirmation_message')}
                   span.glyphicon.glyphicon-remove
+
 = render "add_operation"
 = render "upload_file"
 = render "edit_forms"

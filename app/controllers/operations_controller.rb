@@ -2,9 +2,7 @@ class OperationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    if user_signed_in?
-      @operations = current_user.operations.order(date: :desc)
-    end
+    @operations = current_user.operations.order(date: :desc)
   end
     
   def create

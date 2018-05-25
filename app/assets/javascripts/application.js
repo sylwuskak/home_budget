@@ -20,6 +20,7 @@
 //= require bootstrap/dropdown
 //= require bootstrap/alert
 //= require bootstrap-table
+//= require locale/bootstrap-table-en-US
 //= require locale/bootstrap-table-pl-PL
 // require slim
 //= require_tree .
@@ -39,4 +40,5 @@ $(document).on('ready', function(){
         language: locale
     });
     setupCategorySelect();
+    fixBootstrapTable();
 })

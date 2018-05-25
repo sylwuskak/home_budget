@@ -109,3 +109,23 @@ $custom-violet-super-light: #dbd0e5;
   color: $custom-violet-dark !important;
   background-color: $custom-violet-super-light !important;
 }
+
+.bootstrap-table .table {
+  border-bottom: 1px solid $custom-violet-super-light !important;
+}
+
+.fixed-table-container {
+  border: 1px solid $custom-violet-super-light !important;
+}
+
+.fixed-table-footer {
+  border-top: 1px solid $custom-violet-super-light !important;
+}
+
+.fixed-table-container thead th {
+  border-left: 1px solid $custom-violet-super-light !important;
+}
+.fixed-table-container tbody td {
+  border-left: 1px solid $custom-violet-super-light !important;
+}
+
