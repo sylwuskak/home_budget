@@ -13,7 +13,7 @@
             .col-md-6
               .form-group
                 = f.label :category_type, I18n.t('categories.category_type')
-                = f.select :category_type, ['Expense', 'Incoming'].map{|o| [I18n.t("operations.#{o.downcase}", o)]}, {}, {class: 'form-control'}
+                = f.select :category_type, ['Expense', 'Incoming'].map{|o| [I18n.t("operations.#{o.downcase}"), o]}, {}, {class: 'form-control'}
           .row
             .col-md-12
               .form-group
