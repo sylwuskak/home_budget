@@ -1,48 +1,45 @@
-- if user_signed_in?
-  .panel.panel-default
-    .panel-heading
-      = I18n.t('configurations.index')
-      .btn-group.pull-right
-        button.btn.btn-xs.custom-btn-lighter data-toggle="modal" data-target="#edit_configuration" type="button"
-          span.glyphicon.glyphicon-pencil
-    .panel-body
-      .row
-        .col-md-12
-          = @configuration.keyword
-  
-  
-  .panel.panel-default
-    .panel-heading
-      = I18n.t('categories.index')
-      .btn-group.pull-right
-        button.btn.btn-xs.custom-btn-lighter data-toggle="modal" data-target="#add_category" type="button"
-          span.glyphicon.glyphicon-plus
-    .panel-body
-      table.table.table-hover
-        thead
-          tr
-            th width="25%" = I18n.t('categories.category_name') 
-            th width="15%" = I18n.t('categories.category_type') 
-            th width="50%" = I18n.t('categories.keyword') 
-            th width="10%"
-        tbody 
-        - @categories.each do |category|
-            tr 
-              td 
-                = category.category_name
-              td 
-                = I18n.t("operations.#{category.category_type.downcase}") 
-              td 
-                = category.keyword
-              td 
-                .btn-group.pull-right
-                  button.btn.btn-xs.custom-btn data-toggle="modal" data-target="#category_edit_#{category.id}"
-                    span.glyphicon.glyphicon-pencil
-                  =link_to category_path(category), class: 'btn btn-xs custom-btn', method: :delete, data: {confirm: I18n.t('categories.delete_confirmation_message')}, disabled: (@categories.where(category_type: category.category_type).length == 1 )
-                    span.glyphicon.glyphicon-remove
-  = render "add_category"
-  = render "edit_forms"
-  = render "edit_configuration"
-- else
-  h1
-    = I18n.t('welcome.welcome_message')
+.panel.panel-default
+  .panel-heading
+    = I18n.t('configurations.index')
+    .btn-group.pull-right
+      button.btn.btn-xs.custom-btn-lighter data-toggle="modal" data-target="#edit_configuration" type="button"
+        span.glyphicon.glyphicon-pencil
+  .panel-body
+    .row
+      .col-md-12
+        = @configuration.keyword
+
+
+.panel.panel-default
+  .panel-heading
+    = I18n.t('categories.index')
+    .btn-group.pull-right
+      button.btn.btn-xs.custom-btn-lighter data-toggle="modal" data-target="#add_category" type="button"
+        span.glyphicon.glyphicon-plus
+  .panel-body
+    table.table.table-hover
+      thead
+        tr
+          th width="25%" = I18n.t('categories.category_name') 
+          th width="15%" = I18n.t('categories.category_type') 
+          th width="50%" = I18n.t('categories.keyword') 
+          th width="10%"
+      tbody 
+      - @categories.each do |category|
+          tr 
+            td 
+              = category.category_name
+            td 
+              = I18n.t("operations.#{category.category_type.downcase}") 
+            td 
+              = category.keyword
+            td 
+              .btn-group.pull-right
+                button.btn.btn-xs.custom-btn data-toggle="modal" data-target="#category_edit_#{category.id}"
+                  span.glyphicon.glyphicon-pencil
+                =link_to category_path(category), class: 'btn btn-xs custom-btn', method: :delete, data: {confirm: I18n.t('categories.delete_confirmation_message')}, disabled: (@categories.where(category_type: category.category_type).length == 1 )
+                  span.glyphicon.glyphicon-remove
+= render "add_category"
+= render "edit_forms"
+= render "edit_configuration"
+

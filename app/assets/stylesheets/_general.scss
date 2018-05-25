@@ -104,3 +104,8 @@ $custom-violet-super-light: #f0e8f7;
 .title {
   font-weight: bold;
 }
+
+.jumbotron {
+  color: $custom-violet-dark !important;
+  background-color: $custom-violet-super-light !important;
+}

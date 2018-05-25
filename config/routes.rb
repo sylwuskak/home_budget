@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'categories#index'
+  root to: 'home#index'
   
   get 'statistics', to: 'statistics#statistics', as: 'statistics'
   get 'statistics_image', to: 'statistics#statistics_image', as: 'statistics_image'

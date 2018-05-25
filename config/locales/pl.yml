@@ -7,7 +7,9 @@ pl:
 
   welcome:
     web_title: Home budget
-    welcome_message: Hello world 
+    welcome_messages:
+      signed_in: Witamy w aplikacji
+      signed_out: Zaloguj się, żeby móc kontrolować swoje wydatki
 
   categories:
     index: Kategorie

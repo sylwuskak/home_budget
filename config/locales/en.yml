@@ -7,7 +7,9 @@ en:
 
   welcome:
     web_title: Home budget
-    welcome_message: Hello world 
+    welcome_messages:
+      signed_in: Welcome in application
+      signed_out: Log in to controll your expenses 
 
   categories:
     index: Categories
