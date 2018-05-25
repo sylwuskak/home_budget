@@ -3,6 +3,7 @@ pl:
 
   save: Zapisz
   cancel: Anuluj
+  submit: Zatwierdź
 
   welcome:
     web_title: Home budget
@@ -42,6 +43,10 @@ pl:
 
   statistics:
     index: Statystyki 
+    date_from: Data od
+    date_to: Data do
+    incomings_sum: Suma wpływów
+    expenses_sum: Suma wydatków
 
   user:
     registration: Rejestracja

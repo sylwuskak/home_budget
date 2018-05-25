@@ -95,4 +95,12 @@ $custom-violet-super-light: #f0e8f7;
   background: $custom-violet-super-light;
 }
   
+.horizontal-form {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
    
+.title {
+  font-weight: bold;
+}

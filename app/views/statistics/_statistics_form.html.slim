@@ -1,0 +1,18 @@
+form action="statistics" method="get" enctype="multipart/form-data"
+  .row.horizontal-form
+    .col-md-5
+      .form-group
+        = label_tag 'date_from'
+          = I18n.t('statistics.date_from')
+        = text_field_tag :date_from, nil, class: 'form-control datepicker-months', data: {provide: 'datepicker'}, value: params[:date_from]
+
+    .col-md-5
+      .form-group
+        = label_tag 'date_to'
+          = I18n.t('statistics.date_to')
+        = text_field_tag :date_to, nil, class: 'form-control datepicker-months', data: {provide: 'datepicker'}, value: params[:date_to]
+
+    .col-md-2
+      .form-group
+        button.btn.custom-btn.btn-block type="submit"
+          = I18n.t('submit')

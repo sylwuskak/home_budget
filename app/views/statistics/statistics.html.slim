@@ -1,2 +1,46 @@
-- image_src = statistics_image_path
-img style="max-width:100%" src=image_src
+.container
+  == render 'statistics/statistics_form'
+
+  - if @general_statistics
+    .row
+      .col-md-6
+        .panel.panel-default
+          .panel-heading
+            = I18n.t('operations.expenses')
+          .panel-body
+            ul.list-group
+              li.list-group-item
+                .row
+                  .col-md-6.title
+                    = I18n.t('statistics.expenses_sum')
+                  .col-md-6
+                    = @general_statistics[:expenses_sum]
+              - @general_statistics[:grouped_expenses_operations].each do |category, sum|
+                li.list-group-item
+                  .row
+                    .col-md-6.title
+                      = category
+                    .col-md-6
+                      = sum
+      .col-md-6
+        .panel.panel-default
+          .panel-heading
+            = I18n.t('operations.incomings')
+          .panel-body
+            ul.list-group
+              li.list-group-item
+                .row
+                  .col-md-6.title
+                    = I18n.t('statistics.incomings_sum')
+                  .col-md-6
+                    = @general_statistics[:incomings_sum]
+              - @general_statistics[:grouped_incomings_operations].each do |category, sum|
+                li.list-group-item
+                  .row
+                    .col-md-6.title
+                      = category
+                    .col-md-6
+                      = sum           
+    
+    - image_src = statistics_image_path(date_from: params[:date_from], date_to: params[:date_to])
+    img style="max-width:100%" src=image_src

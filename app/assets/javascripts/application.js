@@ -32,5 +32,11 @@ $(document).on('ready', function(){
         language: locale
     });
 
+    $('.datepicker-months').datepicker({ 
+        format: "yyyy-mm",
+        viewMode: "months", 
+        minViewMode: "months",
+        language: locale
+    });
     setupCategorySelect();
 })
