@@ -62,10 +62,18 @@ pl:
     password_confirmation: Potwierdzenie hasła
     current_password: Obecne hasło
     delete_account: Usuń konto
-    minimum_password_length: "%{minimum_password_length} characters minimum"
+    minimum_password_length: "minimum %{minimum_password_length} znaków"
     submit: Zatwierdź
     default_categories:
       expenses: "Inny wydatek;Żywność i chemia domowa;Dom;Paliwo;Przejazdy;Serwis i części;Dzieci;Edukacja;Elektronika;Multimedia i książki;Odzież i obuwie;Prezenty i wsparcie;Zdrowie i uroda;Płatności;Podróże i wyjazdy;"
       incomings: "Inny przychód;Wynagrodzenie;Premia"
-  
+    reset_password:
+      first: Witaj
+      second: Ktoś zawnioskował o zmianę hasła. Możesz to zrobić klikając w link poniżej.
+      third: Zmień moje hasło
+      forth: Jeżeli to nie ty, proszę zignoruj tego maila.
+      fifth: Twoje hasło się nie zmieni dopóki nie klikniesz w link powyżej i nie stworzysz nowego.
+    forgot_your_password: Zapomniałeś hasła?
+    send_reset_instruction: Wyślij instrukcję resetowania hasła  
+    change_password: Zmień moje hasło
   

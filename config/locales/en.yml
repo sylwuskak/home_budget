@@ -67,4 +67,12 @@ en:
     default_categories:
       expenses: "Żywność i chemia domowa;Dom;Paliwo;Przejazdy;Serwis i części;Dzieci;Edukacja;Elektronika;Multimedia i książki;Odzież i obuwie;Prezenty i wsparcie;Zdrowie i uroda;Płatności;Podróże i wyjazdy;"
       incomings: "Wynagrodzenie;Premia;Inne wpływy"
-    
+    reset_password:
+      first: Hello
+      second: Someone has requested a link to change your password. You can do this through the link below.
+      third: Change my password
+      forth: If you didn't request this, please ignore this email.
+      fifth: Your password won't change until you access the link above and create a new one.
+    forgot_your_password: Did you forget your password?
+    send_reset_instruction: Send reset instruction
+    change_password: Change my password
