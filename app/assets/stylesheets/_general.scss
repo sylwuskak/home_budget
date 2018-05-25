@@ -1,21 +1,21 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-$custom-violet-dark: #6e22b4;
-$custom-violet: #8b4ec3;
-$custom-violet-light: #d3bce8;
-$custom-violet-super-light: #f0e8f7;
+$custom-violet-dark: #4d177d;
+$custom-violet: #704597;
+$custom-violet-light: #b7a2cb;
+$custom-violet-super-light: #dbd0e5;
 
 .navbar.navbar-default {
   background: $custom-violet-dark;
 
   .navbar-brand{
-    color: $custom-violet-light;
+    color: $custom-violet-super-light;
     font-weight: bold;
     font-size: 20px;
     
     &:hover, &:focus {
-      color: $custom-violet-light;
+      color: $custom-violet-super-light;
     }  
   }  
 
@@ -25,13 +25,13 @@ $custom-violet-super-light: #f0e8f7;
     }
 
     > li > a {
-      color: $custom-violet-light;
+      color: $custom-violet-super-light;
       font-weight: bold;
       font-size: 15px;
       
       &:hover, &:focus {
         background: $custom-violet;
-        color: $custom-violet-light;
+        color: $custom-violet-super-light;
       }  
     }
   }
@@ -50,11 +50,11 @@ $custom-violet-super-light: #f0e8f7;
 }
 
 .custom-btn {
-  @include button-variant($custom-violet-light, $custom-violet-dark, $custom-violet-dark);
+  @include button-variant($custom-violet-super-light, $custom-violet-dark, $custom-violet-dark);
 
   &:hover, &:focus, &:active {
     background: $custom-violet;
-    color: $custom-violet-light !important;
+    color: $custom-violet-super-light !important;
   }  
 }
 
