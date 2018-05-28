@@ -7,17 +7,17 @@ class Tools::StatisticCreator
     @operations = operations
   end
 
-  def general_statistics 
+def general_statistics
     expenses_sum = @operations.select{|o| o.is_a? Expense}.map{|o| o.amount}.sum.round(2)
     incomings_sum = @operations.select{|o| o.is_a? Incoming}.map{|o| o.amount}.sum.round(2)
     
     grouped_expenses_operations = @operations.select{|o| o.is_a? Expense}.group_by{|o| o.category_id}.map do |category_id, operations|
-      [@categories.find(category_id).category_name, operations.map{|o| o.amount}.sum.round(2)]
-    end.to_h
+      {category_id: category_id, category: @categories.find(category_id).category_name, sum: operations.map{|o| o.amount}.sum.round(2), operations: operations}
+    end.sort_by{|h| -h[:sum]}
 
     grouped_incomings_operations = @operations.select{|o| o.is_a? Incoming}.group_by{|o| o.category_id}.map do |category_id, operations|
-      [@categories.find(category_id).category_name, operations.map{|o| o.amount}.sum.round(2)]
-    end.to_h
+      {category_id: category_id, category: @categories.find(category_id).category_name, sum: operations.map{|o| o.amount}.sum.round(2), operations: operations}
+    end.sort_by{|h| -h[:sum]}
 
     {expenses_sum: expenses_sum, incomings_sum: incomings_sum, grouped_expenses_operations: grouped_expenses_operations, grouped_incomings_operations: grouped_incomings_operations}
   end

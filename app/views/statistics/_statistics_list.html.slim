@@ -1,0 +1,22 @@
+li.list-group-item
+  .row
+    .col-md-1
+      button.btn.btn-xs.btn-default.small.u-clickable data-toggle="collapse" data-target=".js-operation-#{operations_hash[:category_id]}"
+        span.collapse.in class="js-operation-#{operations_hash[:category_id]}"
+          span.glyphicon.glyphicon-collapse-down
+        span.collapse class="js-operation-#{operations_hash[:category_id]}"
+          span.glyphicon.glyphicon-collapse-up
+    .col-md-6.title
+      = operations_hash[:category]
+    .col-md-5
+      = operations_hash[:sum]
+  table.table.table-hover.collapse class="js-operation-#{operations_hash[:category_id]}"
+    tbody
+      - operations_hash[:operations].each do |operation|
+        tr
+          td width = "20%"
+            = operation.date  
+          td width = "20%"
+            = operation.amount
+          td width = "60%"
+            = operation.description[0..70] + "(...)"

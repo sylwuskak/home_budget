@@ -19,7 +19,9 @@
 //= require bootstrap-datepicker
 //= require bootstrap/dropdown
 //= require bootstrap/alert
+//= require bootstrap/collapse
 //= require bootstrap-table
+//= require bootstrap/affix
 //= require locale/bootstrap-table-en-US
 //= require locale/bootstrap-table-pl-PL
 // require slim
