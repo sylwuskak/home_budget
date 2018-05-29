@@ -26,10 +26,7 @@
   )
 
 @fixBootstrapTable = () ->
-  console.log "AAAAAAAAAAAAAAAA"
   $('[data-search="true"]').bootstrapTable( ->
-    console.log "AAAAAAAAAAAAAAAA"
-    console.log locale
     if(locale == "pl") 
       locale: 'pl-PL'
     else 

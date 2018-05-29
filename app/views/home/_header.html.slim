@@ -21,11 +21,11 @@ nav.navbar.navbar-default.navbar-static-top role="navigation"
             span.caret
           ul.dropdown-menu.dropdown-menu-right
             li 
-              = link_to params.permit(:locale, :user_id, :category_id).merge({:locale => :pl}), :wrap_tag => :li
+              = link_to params.permit(:locale, :user_id, :category_id, :date_from, :date_to).merge({:locale => :pl}), :wrap_tag => :li
                 span = image_tag("pl.jpg", :alt => "pl", style: "border: 1px solid black" )
                 span = " Polski"
             li 
-              = link_to params.permit(:locale, :user_id, :category_id).merge({:locale => :en}), :wrap_tag => :li
+              = link_to params.permit(:locale, :user_id, :category_id, :date_from, :date_to).merge({:locale => :en}), :wrap_tag => :li
                 span = image_tag("en.jpg", :alt => "en", style: "border: 1px solid black")
                 span = " English"
         

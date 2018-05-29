@@ -19,4 +19,7 @@ li.list-group-item
           td width = "20%"
             = operation.amount
           td width = "60%"
-            = operation.description[0..70] + "(...)"
+            - if operation.description.length > 71 
+              = operation.description[0..70] + "(...)"
+            - else
+              = operation.description
