@@ -33,5 +33,10 @@
               - @general_statistics[:grouped_incomings_operations].each do |operations_hash|
                 == render partial: 'statistics_list', locals: {operations_hash: operations_hash}
 
-    - image_src = statistics_image_path(date_from: params[:date_from], date_to: params[:date_to])
-    img style="max-width:100%" src=image_src
+    - full_statistics_image_src = full_statistics_image_path(date_from: params[:date_from], date_to: params[:date_to])
+    - statistics_per_month_image_src = statistics_per_month_image_path(date_from: params[:date_from], date_to: params[:date_to])
+    .row 
+      .col-md-6
+        img style="max-width:100%" src=full_statistics_image_src
+      .col-md-6
+        img style="max-width:100%" src=statistics_per_month_image_src

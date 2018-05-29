@@ -5,6 +5,26 @@ class Tools::StatisticCreator
 
     @categories = categories
     @operations = operations
+
+    @my_theme = {
+      :colors => [
+        '#1357cc', # blue
+        '#3a7e0f', # green
+        '#df3314', # red
+        '#dadada', # grey
+        '#ce00db', # purple
+        '#0d9bb0', # light blue
+        '#ece200', # yellow
+        '#7f08a9', # violet
+        '#ff6600', # orange
+        '#6fff00', # light green
+        '#ff00ce' # pink
+
+      ],
+      :marker_color => '#aea9a9', # Grey
+      :font_color => 'black',
+      :background_colors => 'white'
+    }
   end
 
 def general_statistics
@@ -26,19 +46,19 @@ def general_statistics
     photo_data = ''
     
     Dir.mktmpdir do |dir|
-      grouped_operations = @operations.select{|o| o.type == 'Expense'}.group_by{|o| o.category_id}
+      grouped_operations = @operations.select{|o| o.is_a? Expense}.group_by{|o| o.category_id}
       
       datasets = grouped_operations.map do |category_id, operations|
         [@categories.find(category_id).category_name, [operations.map{|o| o.amount}.sum]]
-      end
+      end.sort_by{|o| o[1]}
 
       g = Gruff::Pie.new
-      g.theme = Gruff::Themes::PASTEL
+    
+      g.theme = @my_theme
       g.title = I18n.t('operations.expenses')
       datasets.each do |data|
         g.data(data[0], data[1])
       end
-
 
       filename = "test-#{SecureRandom.hex(8)}.png"
       filepath = Rails.root.join(dir, filename)
@@ -49,25 +69,32 @@ def general_statistics
     photo_data
   end
 
-  def first_test
+  def statistics_per_month
     photo_data = ''
 
     Dir.mktmpdir do |dir|
-      @datasets = [
-        [:Darren, [25]],
-        [:Chris, [80]],
-        [:Egbert, [22]],
-        [:Adam, [95]],
-        [:Bill, [90]],
-        ["Frank", [5]],
-        ["Zero", [0]],
-        ]
+      grouped_operations = @operations.select{|o| o.is_a? Expense}.group_by{|o| o.category_id}
 
-      g = Gruff::Pie.new
-      g.title = "Visual Pie Graph Test"
+      all_months = @operations.select{|o| o.is_a? Expense}.map{|o| o.date.year.to_s + "-" + o.date.month.to_s.rjust(2, '0')}.uniq.sort
+      
+      grouped_operations_per_month = grouped_operations.map do |category_id, operations|
+        operations_per_month = operations.group_by{|o| {month: o.date.month, year: o.date.year}}.map{|key, operations| {key[:year].to_s + "-" + key[:month].to_s.rjust(2,'0') => operations.map{|o| o.amount}.sum.round(2)} }
+        [@categories.find(category_id).category_name, operations_per_month.reduce({}, :merge) ]
+      end.to_h
+
+      @datasets = grouped_operations_per_month.map do |category, operations_hash|
+        [category, all_months.map{|month| operations_hash[month].to_f} ] 
+      end
+
+      g = Gruff::SideStackedBar.new
+      g.title = I18n.t('operations.expenses_per_month')
+      g.theme = @my_theme
+
+      g.labels = all_months.each_with_index.map{|m, i| [i, m]}.to_h
       @datasets.each do |data|
         g.data(data[0], data[1])
       end
+
 
       filename = "test-#{SecureRandom.hex(8)}.png"
       filepath = Rails.root.join(dir, filename)

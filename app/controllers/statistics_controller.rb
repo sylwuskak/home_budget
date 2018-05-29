@@ -7,10 +7,16 @@ class StatisticsController < ApplicationController
 
   end
 
-  def statistics_image
+  def full_statistics_image
     photo_data = @statistic_creator&.full_statistics
-    send_data(photo_data, :filename => 'statistics.png', :type => 'image/png', :disposition => "inline")
+    send_data(photo_data, :filename => 'full_statistics.png', :type => 'image/png', :disposition => "inline")
   end
+
+  def statistics_per_month_image
+    photo_data = @statistic_creator&.statistics_per_month
+    send_data(photo_data, :filename => 'statistics_per_month.png', :type => 'image/png', :disposition => "inline")
+  end
+
 
   private
   def set_variables

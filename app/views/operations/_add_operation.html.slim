@@ -17,8 +17,8 @@
           .row
             .col-md-6
                 .form-group
-                  - ex_cat = current_user.categories.select{|c| c.category_type == 'Expense'}
-                  - in_cat = current_user.categories.select{|c| c.category_type == 'Incoming'}
+                  - ex_cat = current_user.categories.select{|c| c.category_type == 'Expense'}.sort_by{|c| c.category_name}
+                  - in_cat = current_user.categories.select{|c| c.category_type == 'Incoming'}.sort_by{|c| c.category_name}
                   - grouped_categories = {I18n.t("operations.expense") => ex_cat.map{|c| [c.category_name, c.id]}, I18n.t("operations.incoming") => in_cat.map{|c| [c.category_name, c.id]}}
                   
                   = f.label :category_id, t('operations.category')
