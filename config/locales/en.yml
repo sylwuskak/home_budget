@@ -19,6 +19,7 @@ en:
     add_category: Add category
     edit_category: Edit category
     delete_confirmation_message: Are you sure to delete a category?
+    info: TODO
 
   operations: 
     index: Operations
@@ -39,11 +40,13 @@ en:
     upload_file: Upload file
     upload_file_success: File uploaded successfully
     upload_file_failure: File upload failure
+    info: TODO
   
   configurations: 
     index: Configuration
     edit_configuration: Edit configuration
     keyword: Keywords
+    info: TODO
 
   statistics:
     index: Statistics 

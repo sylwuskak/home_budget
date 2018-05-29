@@ -19,6 +19,7 @@ pl:
     add_category: Dodaj kategorię
     edit_category: Edytuj kategorię
     delete_confirmation_message: Czy jesteś pewien, że chcesz usunąć kategorię?
+    info: Słowa kluczowe kategorii to oddzielone średnikami wyrażenia, dzięki którym wgrywanym automatycznie operacjom zostanie przypisana kategoria.
 
   operations: 
     index: Operacje
@@ -39,11 +40,13 @@ pl:
     upload_file: Wgraj wyciąg
     upload_file_success: Wgrywanie pliku zakończone sukcesem 
     upload_file_failure: Wgrywanie pliku nie powiodło się 
+    info: Operacje można wgrywać automatycznie jako wyciąg w formie HTML lub dodawać poprzez formatkę (przyciski do obu akcji znajdują się po prawej stronie).
 
   configurations: 
     index: Konfiguracja
     edit_configuration: Edytuj konfigurację
     keyword: Słowa kluczowe
+    info: Konfiguracja to oddzielone średnikami wyrażenia, które jeżeli zostaną znalezione w opisie operacji (przy automatycznym wgrywaniu), to taka operacja nie zostanie wczytana.
 
   statistics:
     index: Statystyki 
