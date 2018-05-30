@@ -15,11 +15,19 @@ class Tools::StatisticCreator
         '#ce00db', # purple
         '#0d9bb0', # light blue
         '#ece200', # yellow
+        '#54260c', # dark brown 
         '#7f08a9', # violet
         '#ff6600', # orange
         '#6fff00', # light green
-        '#ff00ce' # pink
-
+        '#ff66e1', # pink
+        '#00ecff', # light blue
+        '#ffaa00', # orange 2
+        '#494f4f', # dark grey
+        '#030585', # dark blue
+        '#a94c19', # brown
+        '#000000', # black
+        '#ff008d', # raspberry
+        '#515a09', # dark green 
       ],
       :marker_color => '#aea9a9', # Grey
       :font_color => 'black',
