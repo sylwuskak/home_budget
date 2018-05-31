@@ -9,24 +9,32 @@
       thead
         tr
           th width="20%" = I18n.t('budgets.date') 
-          th width="50%" = I18n.t('budgets.category') 
-          th width="20%" = I18n.t('budgets.amount') 
+          th width="70%" = I18n.t('budgets.category') 
+          /th width="20%" = I18n.t('budgets.amount') 
           th width="10%"
       tbody 
-      - @budgets.each do |budget|
+      - @budgets_hash.each do |date, budgets|
           tr 
             td 
-              = budget.date.strftime("%Y-%m")
+              = date.strftime("%Y-%m")
             td 
-              = budget.category.category_name
-            td 
-              = budget.amount
+              .row 
+                .col-md-4
+                  b = I18n.t('budgets.sum')
+                .col-md-8
+                  b = budgets.map{|b| b.amount.to_f}.sum.round(2)
+              - budgets.each do |budget|
+                .row 
+                  .col-md-4
+                    = budget.category.category_name
+                  .col-md-8
+                    = budget.amount
             td 
               .btn-group.pull-right
-                /button.btn.btn-xs.custom-btn data-toggle="modal" data-target="#category_edit_#{category.id}"
+                button.btn.btn-xs.custom-btn data-toggle="modal" data-target="#budget_edit_#{date.to_s}"
                   span.glyphicon.glyphicon-pencil
-                =link_to budget_path(budget), class: 'btn btn-xs custom-btn', method: :delete, data: {confirm: I18n.t('budgets.delete_confirmation_message')}
+                =link_to budgets_destroy_budgets_path(date), class: 'btn btn-xs custom-btn', method: :delete, data: {confirm: I18n.t('budgets.delete_confirmation_message')}
                   span.glyphicon.glyphicon-remove
 = render "add_budget"
-/= render "edit_forms"
+= render "edit_forms"
 

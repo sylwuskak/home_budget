@@ -61,7 +61,9 @@ pl:
     category: Kategoria
     amount: Kwota
     delete_confirmation_message: Czy jesteś pewien, że chcesz usunąć ten budżet? 
-
+    sum: Suma
+    add_budget: Dodaj plan budżetu
+    edit_budget: Edytuj plan budżetu
   user:
     registration: Rejestracja
     registration_submit: Zarejestruj

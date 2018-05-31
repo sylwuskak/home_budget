@@ -18,9 +18,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :budgets, only: [:create, :index, :destroy, :update] do 
+  resources :budgets, only: [:index] do 
     collection do 
       post 'budgets_create'
+      post 'budgets_update'
+      delete 'budgets_destroy'
     end
   end
 

@@ -1,0 +1,26 @@
+= form_tag budgets_update_budgets_path, class: "form-horizontal"  do
+  .modal.fade id="budget_edit_#{budgets.first.date.to_s}" tabindex="-1" role="dialog"
+    .modal-dialog role="document"
+      .modal-content
+        .modal-header 
+          = I18n.t('budgets.edit_budget')
+        .modal-body
+          .row
+            = label_tag 'date', I18n.t('budgets.date'), class: 'control-label col-md-6'
+            .col-md-6
+              = text_field_tag :date, nil, class: 'form-control datepicker-months', value: budgets.first.date.strftime("%Y-%m"), disabled: true
+
+          - budgets.each do |budget|
+            = fields_for "budgets[]", budget do |bf|
+              = bf.hidden_field :category_id
+              = bf.hidden_field :id
+              .row 
+                = bf.label :amount, budget.category.category_name, class: 'control-label col-md-6'
+                .col-md-6
+                  = bf.text_field :amount, class: 'form-control'
+              
+        .modal-footer
+          button.btn.custom-btn type="submit" 
+            = I18n.t('save')
+          button.btn.btn-default data-dismiss="modal" 
+            = I18n.t('cancel')

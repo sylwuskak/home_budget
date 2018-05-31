@@ -2,13 +2,12 @@ class BudgetsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @budgets = current_user.budgets.order(date: :desc)
+    @budgets_hash = current_user.budgets.group_by{|b| b.date}.sort_by{|k, v| k}.to_h
     @categories = current_user.categories.order(:category_name)
   end
 
   def budgets_create
-    # require 'pry'
-    # binding.pry
+    #TODO! Poprawić, żeby na liscie były tylko kategorie wydatków
     params_date = params['date'].split('-').map{|a| a.to_i}
     date = Date.new(*params_date)
 
@@ -20,17 +19,18 @@ class BudgetsController < ApplicationController
     end
     redirect_to budgets_path
   end
-    
-  # def create
-  #   o = Budget.new(budget_params)
-  #   o.user = current_user
-  #   o.save!
 
-  #   redirect_to budgets_path
-  # end
+  def budgets_destroy
+    current_user.budgets.select{|b| b.date == Date.parse(params["format"])}.map{|b| b.destroy}
+    redirect_to budgets_path
+  end
 
-  def destroy
-    Budget.destroy(params[:id])
+  def budgets_update
+    params['budgets'].each do |id, bp|
+      b = Budget.find(id)
+      b.update(budget_params(bp))
+    end
+
     redirect_to budgets_path
   end
 
