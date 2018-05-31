@@ -1,0 +1,32 @@
+.panel.panel-default
+  .panel-heading
+    = I18n.t('budgets.index')
+    .btn-group.pull-right
+      button.btn.btn-xs.custom-btn-lighter data-toggle="modal" data-target="#add_budget" type="button"
+        span.glyphicon.glyphicon-plus
+  .panel-body
+    table.table.table-hover
+      thead
+        tr
+          th width="20%" = I18n.t('budgets.date') 
+          th width="50%" = I18n.t('budgets.category') 
+          th width="20%" = I18n.t('budgets.amount') 
+          th width="10%"
+      tbody 
+      - @budgets.each do |budget|
+          tr 
+            td 
+              = budget.date.strftime("%Y-%m")
+            td 
+              = budget.category.category_name
+            td 
+              = budget.amount
+            td 
+              .btn-group.pull-right
+                /button.btn.btn-xs.custom-btn data-toggle="modal" data-target="#category_edit_#{category.id}"
+                  span.glyphicon.glyphicon-pencil
+                =link_to budget_path(budget), class: 'btn btn-xs custom-btn', method: :delete, data: {confirm: I18n.t('budgets.delete_confirmation_message')}
+                  span.glyphicon.glyphicon-remove
+= render "add_budget"
+/= render "edit_forms"
+

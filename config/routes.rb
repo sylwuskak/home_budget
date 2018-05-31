@@ -18,4 +18,10 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :budgets, only: [:create, :index, :destroy, :update] do 
+    collection do 
+      post 'budgets_create'
+    end
+  end
+
 end

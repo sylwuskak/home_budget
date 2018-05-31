@@ -55,6 +55,13 @@ pl:
     incomings_sum: Suma wpływów
     expenses_sum: Suma wydatków
 
+  budgets:
+    index: Planowanie budżetu
+    date: Data
+    category: Kategoria
+    amount: Kwota
+    delete_confirmation_message: Czy jesteś pewien, że chcesz usunąć ten budżet? 
+
   user:
     registration: Rejestracja
     registration_submit: Zarejestruj

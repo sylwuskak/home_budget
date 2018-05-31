@@ -1,0 +1,27 @@
+= form_tag budgets_create_budgets_path do
+  .modal.fade#add_budget tabindex="-1" role="dialog"
+    .modal-dialog role="document"
+      .modal-content
+        .modal-header 
+          = I18n.t('budgets.add_budget')
+        .modal-body
+          .row
+            .col-md-12
+              .form-group
+                = label_tag 'date', I18n.t('budgets.date')
+                = text_field_tag :date, nil, class: 'form-control datepicker-months', data: {provide: 'datepicker'}, value: params[:date_to]
+
+          - @budgets = @categories.map{|c| Budget.new(category: c)}
+          - @budgets.each do |budget|
+            = fields_for "budgets[]", budget do |bf|
+              = bf.hidden_field :category_id
+              .row 
+                .col-md-12
+                  = bf.label :amount, budget.category.category_name
+                  = bf.text_field :amount, class: 'form-control'
+              
+        .modal-footer
+          button.btn.custom-btn type="submit" 
+            = I18n.t('save')
+          button.btn.btn-default data-dismiss="modal" 
+            = I18n.t('cancel')
