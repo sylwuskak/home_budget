@@ -1,6 +1,8 @@
 .panel.panel-default
   .panel-heading
     = I18n.t('budgets.index')
+    button.btn.btn-xs.custom-btn-lighter data-toggle="popover" data-placement="bottom" title=I18n.t('budgets.info')
+      span.glyphicon.glyphicon-info-sign
     .btn-group.pull-right
       button.btn.btn-xs.custom-btn-lighter data-toggle="modal" data-target="#add_budget" type="button"
         span.glyphicon.glyphicon-plus

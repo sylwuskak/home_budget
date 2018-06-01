@@ -65,6 +65,7 @@ en:
     sum: Sum
     add_budget: Add budget plan
     edit_budget: Edit budget plan
+    info: TODO
 
   user:
     registration: Registration

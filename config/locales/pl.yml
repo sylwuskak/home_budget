@@ -65,6 +65,7 @@ pl:
     sum: Suma
     add_budget: Dodaj plan budżetu
     edit_budget: Edytuj plan budżetu
+    info: Miejsce do zaplanowania budżetu na cały miesiąc. Na zakładce statystyk znajduje się informacja o poziomie zrealizowania budżetu.
 
   user:
     registration: Rejestracja
