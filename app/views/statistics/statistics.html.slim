@@ -32,6 +32,32 @@
                     = @general_statistics[:incomings_sum]
               - @general_statistics[:grouped_incomings_operations].each do |operations_hash|
                 == render partial: 'statistics_list', locals: {operations_hash: operations_hash}
+    .row
+      .col-md-12
+        .panel.panel-default
+          .panel-heading
+            = I18n.t('operations.expenses')
+          .panel-body
+            - @general_statistics[:grouped_expenses_operations].sort_by{|h| h[:category]}.each do |operations_hash|
+              - if operations_hash[:budget_amount] > 0
+                .row
+                  .col-md-12
+                    = operations_hash[:category]
+                .row
+                  .col-md-12
+                    .progress
+                      - percent = (operations_hash[:sum]/operations_hash[:budget_amount] * 100).round
+                      - if percent > 100
+                        - percent = 100
+                      - progress_bar_class = 'progress-bar-success'
+                      - if percent > 50
+                        - progress_bar_class = 'progress-bar-warning'
+                      - if percent > 80
+                        - progress_bar_class = 'progress-bar-danger'
+
+                      .progress-bar.progress-bar-striped class=progress_bar_class role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: #{percent}%;"
+                        = percent.to_s + "%"
+
 
     - full_statistics_image_src = full_statistics_image_path(date_from: params[:date_from], date_to: params[:date_to])
     - statistics_per_month_image_src = statistics_per_month_image_path(date_from: params[:date_from], date_to: params[:date_to])

@@ -3,11 +3,10 @@ class BudgetsController < ApplicationController
 
   def index
     @budgets_hash = current_user.budgets.group_by{|b| b.date}.sort_by{|k, v| k}.to_h
-    @categories = current_user.categories.order(:category_name)
+    @categories = current_user.categories.order(:category_name).where(category_type: "Expense")
   end
 
   def budgets_create
-    #TODO! Poprawić, żeby na liscie były tylko kategorie wydatków
     params_date = params['date'].split('-').map{|a| a.to_i}
     date = Date.new(*params_date)
 

@@ -30,8 +30,9 @@ class StatisticsController < ApplicationController
       @date_to = Date.new(*params_date_to).next_month.prev_day
 
       operations = current_user.operations.select{|o| o.date >= @date_from && o.date <= @date_to}
+      budgets = current_user.budgets.select{|b| b.date >= @date_from && b.date <= @date_to}
 
-      @statistic_creator = Tools::StatisticCreator.new(current_user.categories, operations)
+      @statistic_creator = Tools::StatisticCreator.new(current_user.categories, operations, budgets)
     end
   end
 end
