@@ -1,5 +1,6 @@
 en:
   application_name: " Home budget"
+  decimal_separator: "."
 
   save: Save 
   cancel: Cancel
@@ -33,10 +34,10 @@ en:
     edit_operation: Edit operation
     delete_confirmation_message: Are you sure to delete an operation?
     expense: Expense 
-    incoming: Incoming
+    incoming: Income
     expenses: Expenses
     expenses_per_month: Expenses per month
-    incomings: Incomings
+    incomings: Incomes
     upload_file: Upload file
     upload_file_success: File uploaded successfully
     upload_file_failure: File upload failure
@@ -52,8 +53,18 @@ en:
     index: Statistics 
     date_from: Date from
     date_to: Date to
-    incomings_sum: Sum of incomings
+    incomings_sum: Sum of incomes
     expenses_sum: Sum of expenses
+
+  budgets:
+    index: Budget planning
+    date: Date
+    category: Category
+    amount: Amount
+    delete_confirmation_message: Are you sure to delete a budget plan?
+    sum: Sum
+    add_budget: Add budget plan
+    edit_budget: Edit budget plan
 
   user:
     registration: Registration

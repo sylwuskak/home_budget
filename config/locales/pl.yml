@@ -1,5 +1,6 @@
 pl:
   application_name: " Home budget"
+  decimal_separator: ","
 
   save: Zapisz
   cancel: Anuluj
@@ -64,6 +65,7 @@ pl:
     sum: Suma
     add_budget: Dodaj plan budżetu
     edit_budget: Edytuj plan budżetu
+
   user:
     registration: Rejestracja
     registration_submit: Zarejestruj

@@ -9,7 +9,7 @@ li.list-group-item
     .col-md-6.title
       = operations_hash[:category]
     .col-md-5
-      = operations_hash[:sum]
+      = operations_hash[:sum].to_s.gsub('.', I18n.t('decimal_separator'))
   table.table.table-hover.collapse class="js-operation-#{operations_hash[:category_id]}"
     tbody
       - operations_hash[:operations].each do |operation|
@@ -17,7 +17,7 @@ li.list-group-item
           td width = "20%"
             = operation.date  
           td width = "20%"
-            = operation.amount
+            = operation.amount.to_s.gsub('.', I18n.t('decimal_separator'))
           td width = "60%"
             - if operation.description.length > 71 
               = operation.description[0..70] + "(...)"

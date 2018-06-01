@@ -28,7 +28,7 @@
             td 
               = operation.category.category_name
             td 
-              = operation.amount
+              = operation.amount.to_s.gsub('.', I18n.t('decimal_separator'))
             td 
               = operation.description
             td 

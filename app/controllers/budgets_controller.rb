@@ -2,7 +2,7 @@ class BudgetsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @budgets_hash = current_user.budgets.group_by{|b| b.date}.sort_by{|k, v| k}.to_h
+    @budgets_hash = current_user.budgets.group_by{|b| b.date}.sort_by{|k, v| k}.reverse.to_h
     @categories = current_user.categories.order(:category_name).where(category_type: "Expense")
   end
 
@@ -42,7 +42,9 @@ class BudgetsController < ApplicationController
 
   private
   def budget_params(bp)
-    bp.permit(:date, :amount, :category_id)
+    permit_params = bp.permit(:date, :amount, :category_id)
+    permit_params['amount'] = permit_params['amount'].gsub(',', '.')
+    permit_params
   end
 
 end
