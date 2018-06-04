@@ -20,7 +20,7 @@ en:
     add_category: Add category
     edit_category: Edit category
     delete_confirmation_message: Are you sure to delete a category?
-    info: TODO
+    info: Category keywords are phrases separated by semicolon which are for automatic operations classification. 
 
   operations: 
     index: Operations
@@ -41,13 +41,13 @@ en:
     upload_file: Upload file
     upload_file_success: File uploaded successfully
     upload_file_failure: File upload failure
-    info: TODO
+    info: You can add operations automatically as a HTML file or add by a form.
   
   configurations: 
     index: Configuration
     edit_configuration: Edit configuration
     keyword: Keywords
-    info: TODO
+    info: Configuration is a set of phrases separated by semicolon. If they are found in an operation than this operation won't be loaded
 
   statistics:
     index: Statistics 
@@ -65,7 +65,7 @@ en:
     sum: Sum
     add_budget: Add budget plan
     edit_budget: Edit budget plan
-    info: TODO
+    info: It's a place for plan budget for the whole month. 
 
   user:
     registration: Registration
@@ -82,8 +82,8 @@ en:
     minimum_password_length: "%{minimum_password_length} characters minimum"
     submit: Submit
     default_categories:
-      expenses: "Żywność i chemia domowa;Dom;Paliwo;Przejazdy;Serwis i części;Dzieci;Edukacja;Elektronika;Multimedia i książki;Odzież i obuwie;Prezenty i wsparcie;Zdrowie i uroda;Płatności;Podróże i wyjazdy;"
-      incomings: "Wynagrodzenie;Premia;Inne wpływy"
+      expenses: "Another expense;Food and home chemistry;Household;Fuel;Transfers;Car service;Kids;Education;Electronics;Multimedia and books;Clothes and shoes;Gifts;Health;Charges;Trips;"
+      incomings: "Another incomes;Salary;Premium"
     reset_password:
       first: Hello
       second: Someone has requested a link to change your password. You can do this through the link below.

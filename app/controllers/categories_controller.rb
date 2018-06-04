@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
 
   def index
     if user_signed_in?
-      @categories = current_user.categories.order(:id)
+      @categories = current_user.categories.order(:category_name)
     end
   end
 
