@@ -24,11 +24,3 @@
     
 
   )
-
-@fixBootstrapTable = () ->
-  $('[data-search="true"]').bootstrapTable( ->
-    if(locale == "pl") 
-      locale: 'pl-PL'
-    else 
-      locale: 'en-US'    
-  )

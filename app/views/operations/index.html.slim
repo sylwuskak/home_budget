@@ -8,8 +8,11 @@
         span.glyphicon.glyphicon-cloud-upload
       button.btn.btn-xs.custom-btn-lighter data-toggle="modal" data-target="#add_operation" type="button"
         span.glyphicon.glyphicon-plus
-  .panel-body      
-    table.table.table-hover data-toggle="table" data-search="true" data-pagination="true" data-page-list="[10, 25, 50, 100]"
+  .panel-body
+    - locale = "en-US"
+    - if I18n.locale.to_s == 'pl'
+      - locale = "pl-PL"
+    table.table.table-hover data-toggle="table" data-locale=locale data-search="true" data-pagination="true" data-page-list="[10, 25, 50, 100]"
       thead
         tr
           th data-width="8%" = I18n.t('operations.date')

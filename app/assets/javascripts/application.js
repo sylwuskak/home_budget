@@ -42,5 +42,4 @@ $(document).on('ready', function(){
         language: locale
     });
     setupCategorySelect();
-    fixBootstrapTable();
 })
