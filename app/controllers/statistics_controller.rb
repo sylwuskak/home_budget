@@ -22,9 +22,9 @@ class StatisticsController < ApplicationController
   def set_variables
     @statistic_creator = nil
 
-    if params['date_from'] && params['date_to']
+    if params['date_from']
       params_date_from = params['date_from'].split('-').map{|a| a.to_i}
-      params_date_to = params['date_to'].split('-').map{|a| a.to_i}
+      params_date_to = params['date_to'].to_s.empty? ? params_date_from : params['date_to'].split('-').map{|a| a.to_i}
 
       @date_from = Date.new(*params_date_from)
       @date_to = Date.new(*params_date_to).next_month.prev_day

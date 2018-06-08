@@ -30,7 +30,10 @@
               = I18n.t("operations.#{operation.type.downcase}") 
             td 
               = operation.category.category_name
-            td 
+            - operation_class = 'expense_amount'
+            - if operation.is_a? Incoming 
+              - operation_class = 'incoming_amount'
+            td class = operation_class
               = operation.amount.to_s.gsub('.', I18n.t('decimal_separator'))
             td 
               = operation.description

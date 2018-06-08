@@ -129,3 +129,12 @@ $custom-violet-super-light: #dbd0e5;
   border-left: 1px solid $custom-violet-super-light !important;
 }
 
+.incoming_amount {
+  color: #006600;
+  font-weight: bold;
+}
+
+.expense_amount {
+  color: #FF0000;
+  font-weight: bold;
+}
