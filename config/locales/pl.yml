@@ -41,6 +41,7 @@ pl:
     upload_file: Wgraj wyciąg
     upload_file_success: Wgrywanie pliku zakończone sukcesem 
     upload_file_failure: Wgrywanie pliku nie powiodło się 
+    save_failure: "Nie udało się dodać/zaktualizować operacji. Upewnij się, że pola: kwota oraz data zostały uzupełnione."
     info: Operacje można wgrywać automatycznie jako wyciąg w formie HTML lub dodawać poprzez formatkę (przyciski do obu akcji znajdują się po prawej stronie).
 
   configurations: 
@@ -55,6 +56,8 @@ pl:
     date_to: Data do
     incomings_sum: Suma wpływów
     expenses_sum: Suma wydatków
+    no_statistics: Brak wydatków
+    date_validations: Data od powinna być mniejsza lub równa dacie do
 
   budgets:
     index: Planowanie budżetu

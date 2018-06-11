@@ -6,9 +6,13 @@ class OperationsController < ApplicationController
   end
     
   def create
-    o = Operation.new(operation_params)
-    o.user = current_user
-    o.save!
+    begin
+      o = Operation.new(operation_params)
+      o.user = current_user
+      o.save!
+    rescue => e
+      flash[:danger] = I18n.t('operations.save_failure')
+    end
 
     redirect_to operations_path
   end
@@ -19,10 +23,14 @@ class OperationsController < ApplicationController
   end
 
   def update
-    @operation = Operation.find(params[:id])
-    @operation.update(operation_edit_params)
-
-    redirect_to operations_path
+    begin    
+      @operation = Operation.find(params[:id])
+      @operation.update!(operation_edit_params)
+    rescue => e
+      flash[:danger] = I18n.t('operations.save_failure')
+    end
+    redirect_to operations_path    
+    
   end
 
   def upload

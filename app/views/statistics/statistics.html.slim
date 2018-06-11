@@ -1,43 +1,45 @@
-.container
-  == render 'statistics_form'
+== render 'statistics_form'
 
-  - if @general_statistics
-    .row
-      .col-md-6
-        .panel.panel-default
-          .panel-heading
-            = I18n.t('operations.expenses')
-          .panel-body
-            ul.list-group
-              li.list-group-item
-                .row
-                  .col-md-6.title
-                    = I18n.t('statistics.expenses_sum')
-                  .col-md-6
-                    = @general_statistics[:expenses_sum].to_s.gsub('.', I18n.t('decimal_separator'))
-              - @general_statistics[:grouped_expenses_operations].each do |operations_hash|
-                == render partial: 'statistics_list', locals: {operations_hash: operations_hash}
+- if @general_statistics
+  .row
+    .col-md-6
+      .panel.panel-default
+        .panel-heading
+          = I18n.t('operations.expenses')
+        .panel-body
+          ul.list-group
+            li.list-group-item
+              .row
+                .col-md-6.title
+                  = I18n.t('statistics.expenses_sum')
+                .col-md-6
+                  = @general_statistics[:expenses_sum].to_s.gsub('.', I18n.t('decimal_separator'))
+            - @general_statistics[:grouped_expenses_operations].each do |operations_hash|
+              == render partial: 'statistics_list', locals: {operations_hash: operations_hash}
 
-      .col-md-6
-        .panel.panel-default
-          .panel-heading
-            = I18n.t('operations.incomings')
-          .panel-body
-            ul.list-group.hover
-              li.list-group-item
-                .row
-                  .col-md-6.title
-                    = I18n.t('statistics.incomings_sum')
-                  .col-md-6
-                    = @general_statistics[:incomings_sum].to_s.gsub('.', I18n.t('decimal_separator'))
-              - @general_statistics[:grouped_incomings_operations].each do |operations_hash|
-                == render partial: 'statistics_list', locals: {operations_hash: operations_hash}
-    .row
-      .col-md-12
-        .panel.panel-default
-          .panel-heading
-            = I18n.t('operations.expenses')
-          .panel-body
+    .col-md-6
+      .panel.panel-default
+        .panel-heading
+          = I18n.t('operations.incomings')
+        .panel-body
+          ul.list-group.hover
+            li.list-group-item
+              .row
+                .col-md-6.title
+                  = I18n.t('statistics.incomings_sum')
+                .col-md-6
+                  = @general_statistics[:incomings_sum].to_s.gsub('.', I18n.t('decimal_separator'))
+            - @general_statistics[:grouped_incomings_operations].each do |operations_hash|
+              == render partial: 'statistics_list', locals: {operations_hash: operations_hash}
+  .row
+    .col-md-12
+      .panel.panel-default
+        .panel-heading
+          = I18n.t('operations.expenses')
+        .panel-body
+          - if @general_statistics[:grouped_expenses_operations].empty?
+            = I18n.t('statistics.no_statistics')
+          - else
             - @general_statistics[:grouped_expenses_operations].sort_by{|h| h[:category]}.each do |operations_hash|
               - if operations_hash[:budget_amount] > 0
                 .row
@@ -60,10 +62,12 @@
                         = percent.to_s + "%"
 
 
-    - full_statistics_image_src = full_statistics_image_path(date_from: params[:date_from], date_to: params[:date_to])
-    - statistics_per_month_image_src = statistics_per_month_image_path(date_from: params[:date_from], date_to: params[:date_to])
-    .row 
-      .col-md-6
+  - full_statistics_image_src = full_statistics_image_path(date_from: params[:date_from], date_to: params[:date_to])
+  - statistics_per_month_image_src = statistics_per_month_image_path(date_from: params[:date_from], date_to: params[:date_to])
+  .row 
+    .col-md-6
+      - unless full_statistics_image_src
         img style="max-width:100%" src=full_statistics_image_src
-      .col-md-6
+    .col-md-6
+      - unless statistics_per_month_image_src
         img style="max-width:100%" src=statistics_per_month_image_src

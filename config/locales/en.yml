@@ -21,6 +21,8 @@ en:
     edit_category: Edit category
     delete_confirmation_message: Are you sure to delete a category?
     info: Category keywords are phrases separated by semicolon which are for automatic operations classification. 
+    no_statistics: There is no expenses
+    date_validations: Date from should not be later than date to
 
   operations: 
     index: Operations
@@ -41,6 +43,7 @@ en:
     upload_file: Upload file
     upload_file_success: File uploaded successfully
     upload_file_failure: File upload failure
+    save_failure: "Adding/updating operation failure. Are you sure that you filled amount and date?"
     info: You can add operations automatically as a HTML file or add by a form.
   
   configurations: 

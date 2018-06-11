@@ -57,6 +57,10 @@ def general_statistics
     
     Dir.mktmpdir do |dir|
       grouped_operations = @operations.select{|o| o.is_a? Expense}.group_by{|o| o.category_id}
+
+      if grouped_operations.empty?
+        return nil
+      end
       
       datasets = grouped_operations.map do |category_id, operations|
         [@categories.find(category_id).category_name, [operations.map{|o| o.amount}.sum]]
@@ -84,6 +88,10 @@ def general_statistics
 
     Dir.mktmpdir do |dir|
       grouped_operations = @operations.select{|o| o.is_a? Expense}.group_by{|o| o.category_id}
+
+      if grouped_operations.empty?
+        return nil
+      end
 
       all_months = @operations.select{|o| o.is_a? Expense}.map{|o| o.date.year.to_s + "-" + o.date.month.to_s.rjust(2, '0')}.uniq.sort
       
