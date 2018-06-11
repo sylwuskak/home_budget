@@ -69,6 +69,7 @@ en:
     add_budget: Add budget plan
     edit_budget: Edit budget plan
     info: It's a place for plan budget for the whole month. 
+    duplicates_error: Adding budget failure. Maybe you try to add a budget plan for a month, where there is a plan already.
 
   user:
     registration: Registration

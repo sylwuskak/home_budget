@@ -47,7 +47,7 @@ class OperationsController < ApplicationController
   private
   def operation_params
     permit_params = params.require(:operation).permit(:date, :type, :description, :amount, :category_id)
-    permit_params['amount'] = permit_params['amount'].gsub(',', '.')
+    permit_params['amount'] = permit_params['amount'].gsub(',', '.').to_f.round(2).to_s
     permit_params
   end
 
@@ -58,7 +58,7 @@ class OperationsController < ApplicationController
       permit_params = params.require(:incoming).permit(:date, :description, :amount, :category_id)  
     end
 
-    permit_params['amount'] = permit_params['amount'].gsub(',', '.')
+    permit_params['amount'] = permit_params['amount'].gsub(',', '.').to_f.round(2).to_s
     permit_params
   end
 

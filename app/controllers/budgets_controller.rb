@@ -7,14 +7,18 @@ class BudgetsController < ApplicationController
   end
 
   def budgets_create
-    params_date = params['date'].split('-').map{|a| a.to_i}
-    date = Date.new(*params_date)
+    begin
+      params_date = params['date'].split('-').map{|a| a.to_i}
+      date = Date.new(*params_date)
 
-    params['budgets'].each do |bp|
-      b = Budget.new(budget_params(bp))
-      b.user = current_user
-      b.date = date
-      b.save!
+      params['budgets'].each do |bp|
+        b = Budget.new(budget_params(bp))
+        b.user = current_user
+        b.date = date
+        b.save!
+      end
+    rescue => e
+      flash[:danger] = I18n.t('budgets.duplicates_error')
     end
     redirect_to budgets_path
   end
@@ -43,7 +47,7 @@ class BudgetsController < ApplicationController
   private
   def budget_params(bp)
     permit_params = bp.permit(:date, :amount, :category_id)
-    permit_params['amount'] = permit_params['amount'].gsub(',', '.')
+    permit_params['amount'] = permit_params['amount'].gsub(',', '.').to_f.round(2).to_s
     permit_params
   end
 

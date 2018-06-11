@@ -15,7 +15,8 @@
                 .col-md-6
                   = @general_statistics[:expenses_sum].to_s.gsub('.', I18n.t('decimal_separator'))
             - @general_statistics[:grouped_expenses_operations].each do |operations_hash|
-              == render partial: 'statistics_list', locals: {operations_hash: operations_hash}
+              - if operations_hash[:sum] > 0
+                == render partial: 'statistics_list', locals: {operations_hash: operations_hash}
 
     .col-md-6
       .panel.panel-default

@@ -69,6 +69,7 @@ pl:
     add_budget: Dodaj plan budżetu
     edit_budget: Edytuj plan budżetu
     info: Miejsce do zaplanowania budżetu na cały miesiąc. Na zakładce statystyk znajduje się informacja o poziomie zrealizowania budżetu.
+    duplicates_error: Nie udało się dodać planu budżetu. Najprawdopodobniej próbujesz dodać plan na miesiąc, na który już istnieje.
 
   user:
     registration: Rejestracja

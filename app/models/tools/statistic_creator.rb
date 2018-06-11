@@ -40,9 +40,11 @@ def general_statistics
     expenses_sum = @operations.select{|o| o.is_a? Expense}.map{|o| o.amount}.sum.round(2)
     incomings_sum = @operations.select{|o| o.is_a? Incoming}.map{|o| o.amount}.sum.round(2)
     grouped_budgets = @budgets.group_by{|o| o.category_id}
+    expenses_operations = @operations.select{|o| o.is_a? Expense}.group_by{|o| o.category_id}
 
-    grouped_expenses_operations = @operations.select{|o| o.is_a? Expense}.group_by{|o| o.category_id}.map do |category_id, operations|
-      {category_id: category_id, category: @categories.find(category_id).category_name, sum: operations.map{|o| o.amount}.sum.round(2), operations: operations.sort_by{|o| o.date}.reverse, budget_amount: grouped_budgets[category_id].to_a.map{|b| b.amount.to_f}.sum.round(2)}
+    grouped_expenses_operations = @categories.map do |category|
+      operations = expenses_operations[category.id].to_a
+      {category_id: category.id, category: category.category_name, sum: operations.map{|o| o.amount}.sum.round(2), operations: operations.sort_by{|o| o.date}.reverse, budget_amount: grouped_budgets[category.id].to_a.map{|b| b.amount.to_f}.sum.round(2)}
     end.sort_by{|h| -h[:sum]}
 
     grouped_incomings_operations = @operations.select{|o| o.is_a? Incoming}.group_by{|o| o.category_id}.map do |category_id, operations|
