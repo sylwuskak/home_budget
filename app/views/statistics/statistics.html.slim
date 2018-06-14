@@ -63,12 +63,12 @@
                         = percent.to_s + "%"
 
 
-  - full_statistics_image_src = full_statistics_image_path(date_from: params[:date_from], date_to: params[:date_to])
-  - statistics_per_month_image_src = statistics_per_month_image_path(date_from: params[:date_from], date_to: params[:date_to])
-  .row 
-    .col-md-6
-      - unless full_statistics_image_src
+  - if @general_statistics[:expenses_sum] > 0
+    - full_statistics_image_src = full_statistics_image_path(date_from: params[:date_from], date_to: params[:date_to])
+    - statistics_per_month_image_src = statistics_per_month_image_path(date_from: params[:date_from], date_to: params[:date_to])
+  
+    .row 
+      .col-md-6
         img style="max-width:100%" src=full_statistics_image_src
-    .col-md-6
-      - unless statistics_per_month_image_src
+      .col-md-6
         img style="max-width:100%" src=statistics_per_month_image_src
