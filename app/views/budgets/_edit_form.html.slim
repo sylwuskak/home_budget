@@ -10,7 +10,7 @@
             .col-md-6
               = text_field_tag :date, nil, class: 'form-control datepicker-months', value: budgets.first.date.strftime("%Y-%m"), disabled: true
 
-          - budgets.each do |budget|
+          - budgets.sort_by{|b| b.category.category_name}.each do |budget|
             = fields_for "budgets[]", budget do |bf|
               = bf.hidden_field :category_id
               = bf.hidden_field :id

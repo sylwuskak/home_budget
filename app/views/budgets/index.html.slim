@@ -24,7 +24,7 @@
                   b = I18n.t('budgets.sum')
                 .col-md-8
                   b = budgets.map{|b| b.amount.to_f}.sum.round(2).to_s.gsub('.', I18n.t('decimal_separator'))
-              - budgets.each do |budget|
+              - budgets.sort_by{|b| b.category.category_name}.each do |budget|
                 .row 
                   .col-md-4
                     = budget.category.category_name

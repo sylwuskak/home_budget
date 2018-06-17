@@ -10,7 +10,7 @@
             .col-md-6
               = text_field_tag :date, nil, class: 'form-control datepicker-months', data: {provide: 'datepicker'}
 
-          - @budgets = @categories.map{|c| Budget.new(category: c)}
+          - @budgets = @categories.sort_by{|c| c.category_name}.map{|c| Budget.new(category: c)}
           - @budgets.each do |budget|
             = fields_for "budgets[]", budget do |bf|
               = bf.hidden_field :category_id
