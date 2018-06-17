@@ -45,11 +45,11 @@ def general_statistics
     grouped_expenses_operations = @categories.map do |category|
       operations = expenses_operations[category.id].to_a
       {category_id: category.id, category: category.category_name, sum: operations.map{|o| o.amount}.sum.round(2), operations: operations.sort_by{|o| o.date}.reverse, budget_amount: grouped_budgets[category.id].to_a.map{|b| b.amount.to_f}.sum.round(2)}
-    end.sort_by{|h| -h[:sum]}
+    end.sort_by{|h| h[:category]}
 
     grouped_incomings_operations = @operations.select{|o| o.is_a? Incoming}.group_by{|o| o.category_id}.map do |category_id, operations|
       {category_id: category_id, category: @categories.find(category_id).category_name, sum: operations.map{|o| o.amount}.sum.round(2), operations: operations.sort_by{|o| o.date}.reverse}
-    end.sort_by{|h| -h[:sum]}
+    end.sort_by{|h| h[:category]}
 
     {expenses_sum: expenses_sum, incomings_sum: incomings_sum, grouped_expenses_operations: grouped_expenses_operations, grouped_incomings_operations: grouped_incomings_operations}
   end
