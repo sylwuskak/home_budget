@@ -37,6 +37,7 @@ pl:
     incoming: Wpływ
     expenses: Wydatki
     expenses_per_month: Wydatki per miesiąc
+    expenses_to_day: "Wydatki do %{day}. dnia miesiąca"
     incomings: Wpływy
     upload_file: Wgraj wyciąg
     upload_file_success: Wgrywanie pliku zakończone sukcesem 

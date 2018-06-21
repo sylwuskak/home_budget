@@ -1,6 +1,6 @@
 class StatisticsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_variables
+  before_action :set_variables, except: [:sum_statistics]
   
   def statistics
     @general_statistics = @statistic_creator&.general_statistics
@@ -21,6 +21,33 @@ class StatisticsController < ApplicationController
       return photo_data
     end
     send_data(photo_data, :filename => 'statistics_per_month.png', :type => 'image/png', :disposition => "inline")
+  end
+
+  def sum_statistics
+    if params['date_to'].to_s.empty? 
+      if params['date_from'].to_s.empty?
+        return nil
+      end
+      params_date_from = params['date_from'].split('-').map{|a| a.to_i}
+      original_date_from = Date.new(*params_date_from) 
+      if original_date_from.month != Date.today.month
+        return nil
+      end
+
+      @date_from = original_date_from.prev_month(3)
+      @date_to = Date.new(*params_date_from).next_month.prev_day
+
+      operations = current_user.operations.select{|o| o.date >= @date_from && o.date <= @date_to}
+      
+      @statistic_creator = Tools::StatisticCreator.new(nil, operations, nil)
+
+      photo_data = @statistic_creator&.sum_statistics
+      if photo_data.nil?
+        return photo_data
+      end
+      return send_data(photo_data, :filename => 'sum_statistics.png', :type => 'image/png', :disposition => "inline")
+    end
+    nil
   end
 
 

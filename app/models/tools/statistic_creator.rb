@@ -124,4 +124,45 @@ def general_statistics
     
     photo_data
   end
+
+  def sum_statistics
+    photo_data = ''
+
+    Dir.mktmpdir do |dir|
+      g = Gruff::Bar.new(800)
+      g.title = I18n.t('operations.expenses_to_day', :day => Date.today.day)
+      g.theme = @my_theme
+      
+      grouped_operations = @operations.select{|o| o.date.day <= Date.today.day}.group_by{|o| o.date.month}.map do |month, operations|
+        operations.map{|o| o.amount}.sum.round(2)
+      end
+
+      if grouped_operations.length < 4
+        grouped_operations = Array.new(4-grouped_operations.length, 0) + grouped_operations
+      end
+      
+      @datasets = [
+        [I18n.t('operations.expense'), grouped_operations]
+      ]
+
+      g.labels = {
+          0 => I18n.t("date.month_names")[Date.today.month-3],
+          1 => I18n.t("date.month_names")[Date.today.month-2],
+          2 => I18n.t("date.month_names")[Date.today.month-1],
+          3 => I18n.t("date.month_names")[Date.today.month] ,
+      }
+
+      @datasets.each do |data|
+        g.data(data[0], data[1])
+      end
+
+      filename = "test-#{SecureRandom.hex(8)}.png"
+      filepath = Rails.root.join(dir, filename)
+      g.write(filepath)
+      photo_data = File.read(filepath)
+    end
+
+    photo_data
+  end
+
 end

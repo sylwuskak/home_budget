@@ -39,6 +39,7 @@ en:
     incoming: Income
     expenses: Expenses
     expenses_per_month: Expenses per month
+    expenses_to_day: "Expenses to %{day}. day of the month"
     incomings: Incomes
     upload_file: Upload file
     upload_file_success: File uploaded successfully

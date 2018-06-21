@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'statistics', to: 'statistics#statistics', as: 'statistics'
   get 'full_statistics_image', to: 'statistics#full_statistics_image', as: 'full_statistics_image'
   get 'statistics_per_month_image', to: 'statistics#statistics_per_month_image', as: 'statistics_per_month_image'
+  get 'sum_statistics', to: 'statistics#sum_statistics', as: 'sum_statistics'
 
   get 'calendar', to: 'calendar#show_calendar', as: 'calendar'
 
