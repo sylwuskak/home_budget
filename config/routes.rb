@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get 'full_statistics_image', to: 'statistics#full_statistics_image', as: 'full_statistics_image'
   get 'statistics_per_month_image', to: 'statistics#statistics_per_month_image', as: 'statistics_per_month_image'
 
+  get 'calendar', to: 'calendar#show_calendar', as: 'calendar'
+
   resources :categories, only: [:create, :index, :destroy, :update] do 
     collection do 
       patch 'update_configuration'

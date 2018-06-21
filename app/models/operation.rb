@@ -5,4 +5,7 @@ class Operation < ActiveRecord::Base
   validates :date, presence: true
   validates :amount, presence: true
 
+  def start_time
+    self.date 
+  end
 end

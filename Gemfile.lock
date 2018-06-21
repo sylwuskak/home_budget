@@ -165,6 +165,8 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    simple_calendar (2.2.7)
+      rails (>= 3.0)
     slim (3.0.9)
       temple (>= 0.7.6, < 0.9)
       tilt (>= 1.3.3, < 2.1)
@@ -228,6 +230,7 @@ DEPENDENCIES
   rails (~> 5.0.0, >= 5.0.0.1)
   rails_12factor (= 0.0.3)
   sass-rails (~> 5.0)
+  simple_calendar (~> 2.0, >= 2.0.6)
   slim (~> 3.0.7)
   slim-rails (~> 3.1.1)
   spring

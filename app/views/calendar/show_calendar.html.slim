@@ -1,0 +1,9 @@
+= month_calendar events: @operations do |date, operations| 
+  = date.day
+  - operations.select{|o| o.is_a? Incoming}.group_by{|o| o.date}.each do |date, operations| 
+    .incoming_amount
+      = operations.map{|o| o.amount}.sum.round(2)
+
+  - operations.select{|o| o.is_a? Expense}.group_by{|o| o.date}.each do |date, operations|
+    .expense_amount
+      = operations.map{|o| o.amount}.sum.round(2)

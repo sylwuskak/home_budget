@@ -54,6 +54,7 @@ gem 'bootstrap-datepicker-rails', '~> 1.6', '>= 1.6.1.1'
 gem 'nokogiri', '~> 1.6', '>= 1.6.6.2'
 gem 'bootstrap-table-rails', '~> 1.12', '>= 1.12.1'
 gem 'gruff', '~> 0.7.0'
+gem 'simple_calendar', '~> 2.0', '>= 2.0.6'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
