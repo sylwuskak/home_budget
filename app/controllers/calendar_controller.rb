@@ -2,6 +2,6 @@ class CalendarController < ApplicationController
   before_action :authenticate_user!
 
   def show_calendar
-    @operations = Operation.all
+    @operations = current_user.operations
   end
 end
