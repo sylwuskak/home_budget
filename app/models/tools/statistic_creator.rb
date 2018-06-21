@@ -156,6 +156,8 @@ def general_statistics
         g.data(data[0], data[1])
       end
 
+      g.minimum_value = 0
+
       filename = "test-#{SecureRandom.hex(8)}.png"
       filepath = Rails.root.join(dir, filename)
       g.write(filepath)
