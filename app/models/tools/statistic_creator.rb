@@ -133,7 +133,7 @@ def general_statistics
       g.title = I18n.t('operations.expenses_to_day', :day => Date.today.day)
       g.theme = @my_theme
       
-      grouped_operations = @operations.select{|o| o.date.day <= Date.today.day}.group_by{|o| o.date.month}.map do |month, operations|
+      grouped_operations = @operations.select{|o| o.is_a?(Expense) && o.date.day <= Date.today.day}.group_by{|o| o.date.month}.map do |month, operations|
         operations.map{|o| o.amount}.sum.round(2)
       end
 
