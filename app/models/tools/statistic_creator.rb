@@ -133,16 +133,15 @@ def general_statistics
       g.title = I18n.t('operations.expenses_to_day', :day => Date.today.day)
       g.theme = @my_theme
       
+      grouped_operations_for_view = Array.new(4, 0)
+
       grouped_operations = @operations.select{|o| o.is_a?(Expense) && o.date.day <= Date.today.day}.group_by{|o| o.date.month}.map do |month, operations|
-        operations.map{|o| o.amount}.sum.round(2)
+        index = Date.today.month - month < 0 ? (Date.today.month - month + 9).abs : (Date.today.month - month - 3).abs
+        grouped_operations_for_view[index] = operations.map{|o| o.amount}.sum.round(2)
       end
 
-      if grouped_operations.length < 4
-        grouped_operations = Array.new(4-grouped_operations.length, 0) + grouped_operations
-      end
-      
       @datasets = [
-        [I18n.t('operations.expense'), grouped_operations]
+        [I18n.t('operations.expense'), grouped_operations_for_view]
       ]
 
       g.labels = {
