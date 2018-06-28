@@ -1,6 +1,7 @@
 pl:
   application_name: " Home budget"
   decimal_separator: ","
+  sum: Suma
 
   save: Zapisz
   cancel: Anuluj
