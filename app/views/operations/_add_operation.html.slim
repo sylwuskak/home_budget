@@ -1,5 +1,5 @@
 = form_for :operation, url: operations_path, turboboost: true, method: :post  do |f|
-  .modal.fade#add_operation tabindex="-1" role="dialog"
+  .modal.fade id="add_operation_#{type}" tabindex="-1" role="dialog"
     .modal-dialog role="document"
       .modal-content
         .modal-header 
@@ -13,16 +13,12 @@
             .col-md-6
                 .form-group
                   = f.label :type, I18n.t('operations.type')
-                  = f.select :type, ['Expense', 'Incoming'].map{|o| [I18n.t("operations.#{o.downcase}"), o]}, {}, {class: 'form-control'}
+                  = f.select :type, [type.camelize].map{|o| [I18n.t("operations.#{o.downcase}"), o]}, {}, {class: 'form-control', disabled: 'true', value: type.camelize}
           .row
             .col-md-6
                 .form-group
-                  - ex_cat = current_user.categories.select{|c| c.category_type == 'Expense'}.sort_by{|c| c.category_name}
-                  - in_cat = current_user.categories.select{|c| c.category_type == 'Incoming'}.sort_by{|c| c.category_name}
-                  - grouped_categories = {I18n.t("operations.expense") => ex_cat.map{|c| [c.category_name, c.id]}, I18n.t("operations.incoming") => in_cat.map{|c| [c.category_name, c.id]}}
-                  
                   = f.label :category_id, t('operations.category')
-                  = f.select :category_id, grouped_options_for_select(grouped_categories), {}, {class: 'form-control'}
+                  = f.select :category_id, current_user.categories.select{|c| c.category_type == type.camelize}.map{|c| [c.category_name, c.id]}.sort_by{|c| c[0]}, {}, {class: 'form-control'}
             .col-md-6
                 .form-group
                   = f.label :amount, I18n.t('operations.amount')

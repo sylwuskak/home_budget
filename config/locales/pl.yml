@@ -32,6 +32,8 @@ pl:
     without_category: Bez kategorii
     description: Opis
     add_operation: Dodaj operację
+    add_expense: Dodaj wydatek
+    add_income: Dodaj przychód
     edit_operation: Edycja operacji
     delete_confirmation_message: Czy jesteś pewien, że chcesz usunąć operację?
     expense: Wydatek

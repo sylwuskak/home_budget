@@ -34,6 +34,8 @@ en:
     without_category: Without category
     description: Description
     add_operation: Add operation
+    add_expense: Add expense
+    add_income: Add income
     edit_operation: Edit operation
     delete_confirmation_message: Are you sure to delete an operation?
     expense: Expense 

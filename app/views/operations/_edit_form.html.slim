@@ -12,7 +12,6 @@
                   = f.text_field :date, class: 'form-control datepicker', data: {provide: 'datepicker'}
             .col-md-6
                 .form-group
-                  
                   = f.label :type, I18n.t('operations.type')
                   = f.select :type, ['Expense', 'Incoming'].map{|o| [I18n.t("operations.#{o.downcase}"), o]}, {}, {class: 'form-control', disabled: 'true'}
           .row
