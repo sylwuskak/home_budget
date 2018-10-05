@@ -6,6 +6,7 @@ pl:
   save: Zapisz
   cancel: Anuluj
   submit: Zatwierdź
+  demo: Wersja demo
 
   welcome:
     web_title: Home budget

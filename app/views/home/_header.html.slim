@@ -11,11 +11,13 @@ nav.navbar.navbar-default.navbar-static-top role="navigation"
           li= active_link_to I18n.t('budgets.index'), budgets_path
           li= active_link_to I18n.t('calendar.index'), calendar_path
           li= active_link_to I18n.t('statistics.index'), statistics_path(date_from: Date.today.strftime("%Y-%m"))
-          li= active_link_to I18n.t('user.edit'), edit_user_registration_path
+          - unless current_user.email == 'demo@example.com'
+            li= active_link_to I18n.t('user.edit'), edit_user_registration_path
           li= active_link_to I18n.t('user.logout'), destroy_user_session_path, method: :delete
         - else
           li= active_link_to I18n.t('user.registration'), new_user_registration_path
           li= active_link_to I18n.t('user.login'), user_session_path
+          li= active_link_to I18n.t('demo'), demo_version_path
       ul.nav.navbar-nav.pull-right
         li.dropdown
           a.dropdown-toggle data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"

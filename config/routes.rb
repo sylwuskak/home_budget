@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'home#index'
+
+  get 'demo_version', to: 'home#demo_version', as: 'demo_version'
   
   get 'statistics', to: 'statistics#statistics', as: 'statistics'
   get 'full_statistics_image', to: 'statistics#full_statistics_image', as: 'full_statistics_image'
