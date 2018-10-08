@@ -9,6 +9,7 @@ class OperationsController < ApplicationController
     begin
       o = Operation.new(operation_params)
       o.user = current_user
+      o.type = params['type']
       o.save!
     rescue => e
       flash[:danger] = I18n.t('operations.save_failure')

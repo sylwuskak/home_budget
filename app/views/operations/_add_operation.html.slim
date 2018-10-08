@@ -5,6 +5,7 @@
         .modal-header 
           = I18n.t('operations.add_operation')
         .modal-body
+          = hidden_field_tag 'type', type.camelize
           .row
             .col-md-6
                 .form-group
