@@ -6,6 +6,24 @@ $custom-violet: #704597;
 $custom-violet-light: #b7a2cb;
 $custom-violet-super-light: #dbd0e5;
 
+.operation-panel {
+  margin-bottom: 0px !important;
+}
+
+.pagination {
+  margin: 10px 0 !important;
+}
+
+.pagination > li > a, .pagination > li > span {
+  color: $custom-violet-dark !important;
+}
+
+.pagination > .active > span{
+  background-color: $custom-violet-dark !important;
+  border-color: $custom-violet-dark !important;
+  color: $custom-violet-super-light !important;
+}
+
 .navbar.navbar-default {
   background: $custom-violet-dark;
 
@@ -154,4 +172,8 @@ $custom-violet-super-light: #dbd0e5;
 .calendar-title {
   font-weight: bold;
   font-size: 18px;
+}
+
+.center {
+  text-align: center;
 }

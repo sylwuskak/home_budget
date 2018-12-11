@@ -1,4 +1,4 @@
-.panel.panel-default
+.panel.panel-default.operation-panel
   .panel-heading
     = I18n.t('operations.index')
     button.btn.btn-xs.custom-btn-lighter data-toggle="popover" data-placement="bottom" title=I18n.t('operations.info')
@@ -19,15 +19,16 @@
     - locale = "en-US"
     - if I18n.locale.to_s == 'pl'
       - locale = "pl-PL"
-    table.table.table-hover data-toggle="table" data-locale=locale data-search="true" data-pagination="true" data-page-list="[10, 25, 50, 100]"
+    /table.table.table-hover data-toggle="table" data-locale=locale data-search="true" data-pagination="true" data-page-list="[10, 25, 50, 100]"
+    table.table.table-hover 
       thead
         tr
-          th data-width="8%" = I18n.t('operations.date')
-          th data-width="6%" = I18n.t('operations.type')
-          th data-width="17%" = I18n.t('operations.category')
-          th data-width="8%" = I18n.t('operations.amount')
-          th data-width="50%" = I18n.t('operations.description') 
-          th data-width="6%"
+          th width="8%" = I18n.t('operations.date')
+          th width="6%" = I18n.t('operations.type')
+          th width="17%" = I18n.t('operations.category')
+          th width="8%" = I18n.t('operations.amount')
+          th width="50%" = I18n.t('operations.description') 
+          th width="6%"
       tbody 
         - @operations.each do |operation|
           tr 
@@ -55,3 +56,5 @@
 = render "add_operation", :type => 'incoming'
 = render "upload_file"
 = render "edit_forms"
+.center
+  = will_paginate @operations, renderer: BootstrapPagination::Rails

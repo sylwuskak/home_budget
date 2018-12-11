@@ -8,6 +8,11 @@ pl:
   submit: Zatwierdź
   demo: Wersja demo
 
+  will_paginate:
+    previous_label: "&#8592; Poprzednia"
+    next_label: "Następna &#8594;"
+    page_gap: "&hellip;"
+
   welcome:
     web_title: Home budget
     welcome_messages:
