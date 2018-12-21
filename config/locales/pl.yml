@@ -42,6 +42,7 @@ pl:
     add_income: Dodaj przychód
     edit_operation: Edycja operacji
     delete_confirmation_message: Czy jesteś pewien, że chcesz usunąć operację?
+    search: Szukaj
     expense: Wydatek
     incoming: Wpływ
     expenses: Wydatki

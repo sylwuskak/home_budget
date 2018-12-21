@@ -39,6 +39,7 @@ en:
     add_income: Add income
     edit_operation: Edit operation
     delete_confirmation_message: Are you sure to delete an operation?
+    search: Search
     expense: Expense 
     incoming: Income
     expenses: Expenses

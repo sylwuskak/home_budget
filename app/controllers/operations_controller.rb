@@ -2,7 +2,14 @@ class OperationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @operations = current_user.operations.order(date: :desc).paginate(:page => params[:page], :per_page => 10)
+    @operations = nil
+
+    if params[:search_phrase].nil? 
+      @operations = current_user.operations.order(date: :desc).paginate(:page => params[:page], :per_page => 10)
+    else
+      search = params[:search_phrase]
+      @operations = current_user.operations.where("description LIKE ? or amount = ? ", params[:search_phrase], params[:search_phrase].to_f).order(date: :desc).paginate(:page => params[:page], :per_page => 10)
+    end
   end
     
   def create

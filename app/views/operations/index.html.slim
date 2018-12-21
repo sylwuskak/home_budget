@@ -19,7 +19,21 @@
     - locale = "en-US"
     - if I18n.locale.to_s == 'pl'
       - locale = "pl-PL"
-    /table.table.table-hover data-toggle="table" data-locale=locale data-search="true" data-pagination="true" data-page-list="[10, 25, 50, 100]"
+    .row
+      .col-md-12
+        .pull-right
+          form action="operations" method="get" enctype="multipart/form-data" 
+            .row.horizontal-form
+              .col-md-9
+                .form-group
+                  = label_tag 'date_from'
+                    = I18n.t('operations.search')
+                  = text_field_tag :search_phrase, nil, class: 'form-control', value: params[:search_phrase]
+              .col-md-3
+                .form-group
+                  button.btn.custom-btn.btn-block type="submit"
+                    span.glyphicon.glyphicon-search
+                    
     table.table.table-hover 
       thead
         tr
