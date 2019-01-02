@@ -145,9 +145,9 @@ def general_statistics
       ]
 
       g.labels = {
-          0 => I18n.t("date.month_names")[Date.today.month-3],
-          1 => I18n.t("date.month_names")[Date.today.month-2],
-          2 => I18n.t("date.month_names")[Date.today.month-1],
+          0 => I18n.t("date.month_names")[(Date.today - 3.month).month],
+          1 => I18n.t("date.month_names")[(Date.today - 2.month).month],
+          2 => I18n.t("date.month_names")[(Date.today - 1.month).month],
           3 => I18n.t("date.month_names")[Date.today.month] ,
       }
 
