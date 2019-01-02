@@ -1,6 +1,8 @@
 class AddDemoData < ActiveRecord::Migration[5.0]
   def change
     
+    user = User.where(email: "demo@example.com").first
+
     (Date.new(2019, 1, 1)..Date.new(2019, 12, 31)).each do |d|
       Expense.create!(
         user: user, 
