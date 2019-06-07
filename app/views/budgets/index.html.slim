@@ -25,11 +25,12 @@
                 .col-md-8
                   b = budgets.map{|b| b.amount.to_f}.sum.round(2).to_s.gsub('.', I18n.t('decimal_separator'))
               - budgets.sort_by{|b| b.category.category_name}.each do |budget|
-                .row 
-                  .col-md-4
-                    = budget.category.category_name
-                  .col-md-8
-                    = budget.amount.to_s.gsub('.', I18n.t('decimal_separator'))
+                - if budget.amount.to_i > 0
+                  .row 
+                    .col-md-4
+                      = budget.category.category_name
+                    .col-md-8
+                      = budget.amount.to_s.gsub('.', I18n.t('decimal_separator'))
             td 
               .btn-group.pull-right
                 button.btn.btn-xs.custom-btn data-toggle="modal" data-target="#budget_edit_#{date.to_s}"
