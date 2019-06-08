@@ -1,0 +1,18 @@
+= form_for :sub_category, url: sub_categories_path, turboboost: true, method: :post  do |f|
+  .modal.fade id="add_sub_category_#{category_id}" tabindex="-1" role="dialog"
+    .modal-dialog role="document"
+      = hidden_field_tag 'category_id', category_id
+      .modal-content
+        .modal-header 
+          = I18n.t('categories.add_sub_category')
+        .modal-body
+          .row
+            .col-md-12
+              .form-group
+                = f.label :sub_category_name, I18n.t('categories.sub_category_name')
+                = f.text_field :sub_category_name, class: 'form-control'
+        .modal-footer
+          button.btn.custom-btn type="submit" 
+            = I18n.t('save')
+          button.btn.btn-default data-dismiss="modal" 
+            = I18n.t('cancel')

@@ -25,6 +25,10 @@ en:
     info: Category keywords are phrases separated by semicolon which are for automatic operations classification. 
     no_statistics: There is no expenses
     date_validations: Date from should not be later than date to
+    add_sub_category: Add subcategory
+    sub_category_name: Name
+    edit_sub_category: Edit subcategory
+    delete_subcategory_confirmation_message: Are you sure to delete a subcategory?
 
   operations: 
     index: Operations

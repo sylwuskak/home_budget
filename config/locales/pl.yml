@@ -28,6 +28,11 @@ pl:
     edit_category: Edytuj kategorię
     delete_confirmation_message: Czy jesteś pewien, że chcesz usunąć kategorię?
     info: Słowa kluczowe kategorii to oddzielone średnikami wyrażenia, dzięki którym wgrywanym automatycznie operacjom zostanie przypisana kategoria.
+    add_sub_category: Dodaj podkategrię
+    sub_category_name: Nazwa
+    edit_sub_category: Edytuj podkategorię
+    delete_subcategory_confirmation_message: Czy jesteś pewien, że chcesz usunąć podkategorię?
+
 
   operations: 
     index: Operacje
