@@ -5,6 +5,16 @@ class HomeController < ApplicationController
     else
       I18n.t('welcome.welcome_messages.signed_out')
     end
+
+    cookies[:glupie_ciasteczko] = {
+      :value => "Jakieś głupie ciasteczko",
+      :expires => Time.now + 6.months,
+      # :domain => ['.localhost.com'] #zapisuje na subdomain
+      # :domain => %w(.localhost) #nigdzie nie zapisuje
+      # :domain => '.localhost.com' #nigdzie nie zapisuje
+      :domain => 'herokuapp.com' #nigdzie nie zapisuje
+      # :domain => :all #zapisuje na subdomain
+    }
   end
 
   def demo_version
