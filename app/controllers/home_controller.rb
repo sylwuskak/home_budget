@@ -15,6 +15,36 @@ class HomeController < ApplicationController
       :domain => 'herokuapp.com' #nigdzie nie zapisuje
       # :domain => :all #zapisuje na subdomain
     }
+
+    cookies[:glupie_ciasteczko2] = {
+      :value => "Jakieś głupie ciasteczko",
+      :expires => Time.now + 6.months,
+      :domain => ['.herokuapp.com'] #zapisuje na subdomain
+      # :domain => %w(.localhost) #nigdzie nie zapisuje
+      # :domain => '.localhost.com' #nigdzie nie zapisuje
+      # :domain => 'herokuapp.com' #nigdzie nie zapisuje
+      # :domain => :all #zapisuje na subdomain
+    }
+
+    cookies[:glupie_ciasteczko3] = {
+      :value => "Jakieś głupie ciasteczko",
+      :expires => Time.now + 6.months,
+      # :domain => ['.herokuapp.com'] #zapisuje na subdomain
+      # :domain => %w(.localhost) #nigdzie nie zapisuje
+      # :domain => '.localhost.com' #nigdzie nie zapisuje
+      # :domain => 'herokuapp.com' #nigdzie nie zapisuje
+      # :domain => :all #zapisuje na subdomain
+    }
+
+    cookies[:glupie_ciasteczko3] = {
+      :value => "Jakieś głupie ciasteczko",
+      :expires => Time.now + 6.months,
+      # :domain => ['.herokuapp.com'] #zapisuje na subdomain
+      :domain => %w(.herokuapp) #nigdzie nie zapisuje
+      # :domain => '.localhost.com' #nigdzie nie zapisuje
+      # :domain => 'herokuapp.com' #nigdzie nie zapisuje
+      # :domain => :all #zapisuje na subdomain
+    }
   end
 
   def demo_version
