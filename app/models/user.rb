@@ -6,7 +6,6 @@ class User < ApplicationRecord
 
   has_many :categories, dependent: :destroy
   has_many :operations, dependent: :destroy
-  has_many :configurations, dependent: :destroy
   has_many :budgets, dependent: :destroy
 
   after_create :add_default_categories
@@ -20,6 +19,5 @@ class User < ApplicationRecord
       Category.create!(category_type: 'Incoming', category_name: incoming, user: self)
     end
 
-    Configuration.create!(user: self, keyword: "")
   end
 end

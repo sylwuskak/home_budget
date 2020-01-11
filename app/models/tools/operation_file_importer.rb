@@ -7,7 +7,6 @@ class Tools::OperationFileImporter
     @file = Nokogiri::HTML(file, nil, Encoding::UTF_8.to_s)
     @current_user = current_user
     @categories = current_user.categories 
-    @configuration = current_user.configurations.first
   end
     
   def import

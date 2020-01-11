@@ -55,12 +55,6 @@ pl:
     save_failure: "Nie udało się dodać/zaktualizować operacji. Upewnij się, że pola: kwota oraz data zostały uzupełnione."
     info: Operacje można wgrywać automatycznie jako wyciąg w formie HTML lub dodawać poprzez formatkę (przyciski do obu akcji znajdują się po prawej stronie).
 
-  configurations: 
-    index: Konfiguracja
-    edit_configuration: Edytuj konfigurację
-    keyword: Słowa kluczowe
-    info: Konfiguracja to oddzielone średnikami wyrażenia, które jeżeli zostaną znalezione w opisie operacji (przy automatycznym wgrywaniu), to taka operacja nie zostanie wczytana.
-
   statistics:
     index: Statystyki 
     date_from: Data od

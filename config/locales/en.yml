@@ -52,12 +52,6 @@ en:
     save_failure: "Adding/updating operation failure. Are you sure that you filled amount and date?"
     info: You can add operations automatically as a HTML file or add by a form.
   
-  configurations: 
-    index: Configuration
-    edit_configuration: Edit configuration
-    keyword: Keywords
-    info: Configuration is a set of phrases separated by semicolon. If they are found in an operation than this operation won't be loaded
-
   statistics:
     index: Statistics 
     date_from: Date from

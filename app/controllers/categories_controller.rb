@@ -1,5 +1,4 @@
 class CategoriesController < ApplicationController
-  before_action :set_configuration
 
   def index
     if user_signed_in?
@@ -27,12 +26,6 @@ class CategoriesController < ApplicationController
     redirect_to categories_path
   end
 
-  def update_configuration
-    @configuration.update(configuration_params)    
-
-    redirect_to categories_path
-  end
-
   private
   def category_params
     params.require(:category).permit(:category_name, :category_type, :keyword)
@@ -40,16 +33,6 @@ class CategoriesController < ApplicationController
 
   def category_edit_params
     params.require(:category).permit(:category_name, :keyword)
-  end
-
-  def configuration_params
-    params.require(:configuration).permit(:keyword)
-  end
-
-  def set_configuration
-    if user_signed_in?
-      @configuration = current_user.configurations.first
-    end
   end
 
 end

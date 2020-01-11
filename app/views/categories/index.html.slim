@@ -1,19 +1,5 @@
 .panel.panel-default
   .panel-heading
-    = I18n.t('configurations.index')
-    button.btn.btn-xs.custom-btn-lighter data-toggle="popover" data-placement="bottom" title=I18n.t('configurations.info')
-      span.glyphicon.glyphicon-info-sign
-    .btn-group.pull-right
-      button.btn.btn-xs.custom-btn-lighter data-toggle="modal" data-target="#edit_configuration" type="button"
-        span.glyphicon.glyphicon-pencil
-  .panel-body
-    .row
-      .col-md-12
-        = @configuration.keyword
-
-
-.panel.panel-default
-  .panel-heading
     = I18n.t('categories.index')
     button.btn.btn-xs.custom-btn-lighter data-toggle="popover" data-placement="bottom" title=I18n.t('categories.info')
       span.glyphicon.glyphicon-info-sign
@@ -47,5 +33,3 @@
 
 = render "add_category"
 = render "edit_forms"
-= render "edit_configuration"
-

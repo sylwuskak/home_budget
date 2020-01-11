@@ -12,9 +12,6 @@ Rails.application.routes.draw do
   get 'calendar', to: 'calendar#show_calendar', as: 'calendar'
 
   resources :categories, only: [:create, :index, :destroy, :update] do 
-    collection do 
-      patch 'update_configuration'
-    end
   end
 
   resources :operations, only: [:create, :index, :destroy, :update] do
