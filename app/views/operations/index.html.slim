@@ -4,8 +4,6 @@
     button.btn.btn-xs.custom-btn-lighter data-toggle="popover" data-placement="bottom" title=I18n.t('operations.info')
       span.glyphicon.glyphicon-info-sign
     .btn-group.pull-right
-      button.btn.btn-xs.custom-btn-lighter data-toggle="modal" data-target="#upload_file" type="button"
-        span.glyphicon.glyphicon-cloud-upload
       button class="btn btn-xs custom-btn-lighter dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"
         span.glyphicon.glyphicon-plus
         span.caret
@@ -68,7 +66,6 @@
 
 = render "add_operation", :type => 'expense'
 = render "add_operation", :type => 'incoming'
-= render "upload_file"
 = render "edit_forms"
 .center
   = will_paginate @operations, renderer: BootstrapPagination::Rails

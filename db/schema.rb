@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200111114034) do
+ActiveRecord::Schema.define(version: 20200111115006) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 20200111114034) do
     t.string  "category_name"
     t.integer "user_id"
     t.string  "category_type", null: false
-    t.text    "keyword"
     t.index ["user_id"], name: "index_categories_on_user_id", using: :btree
   end
 

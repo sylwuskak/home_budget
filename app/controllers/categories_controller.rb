@@ -28,11 +28,11 @@ class CategoriesController < ApplicationController
 
   private
   def category_params
-    params.require(:category).permit(:category_name, :category_type, :keyword)
+    params.require(:category).permit(:category_name, :category_type)
   end
 
   def category_edit_params
-    params.require(:category).permit(:category_name, :keyword)
+    params.require(:category).permit(:category_name)
   end
 
 end

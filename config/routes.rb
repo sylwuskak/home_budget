@@ -15,9 +15,6 @@ Rails.application.routes.draw do
   end
 
   resources :operations, only: [:create, :index, :destroy, :update] do
-    collection do 
-      post 'upload'
-    end
   end
 
   resources :budgets, only: [:index] do 

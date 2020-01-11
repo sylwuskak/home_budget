@@ -23,11 +23,9 @@ pl:
     index: Kategorie
     category_name: Nazwa
     category_type: Typ
-    keyword: Słowa kluczowe
     add_category: Dodaj kategorię
     edit_category: Edytuj kategorię
     delete_confirmation_message: Czy jesteś pewien, że chcesz usunąć kategorię?
-    info: Słowa kluczowe kategorii to oddzielone średnikami wyrażenia, dzięki którym wgrywanym automatycznie operacjom zostanie przypisana kategoria.
 
   operations: 
     index: Operacje
@@ -49,9 +47,6 @@ pl:
     expenses_per_month: Wydatki per miesiąc
     expenses_to_day: "Wydatki do %{day}. dnia miesiąca"
     incomings: Wpływy
-    upload_file: Wgraj wyciąg
-    upload_file_success: Wgrywanie pliku zakończone sukcesem 
-    upload_file_failure: Wgrywanie pliku nie powiodło się 
     save_failure: "Nie udało się dodać/zaktualizować operacji. Upewnij się, że pola: kwota oraz data zostały uzupełnione."
     info: Operacje można wgrywać automatycznie jako wyciąg w formie HTML lub dodawać poprzez formatkę (przyciski do obu akcji znajdują się po prawej stronie).
 

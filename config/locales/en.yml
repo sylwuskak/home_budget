@@ -18,11 +18,9 @@ en:
     index: Categories
     category_name: Category name
     category_type: Type
-    keyword: Keywords
     add_category: Add category
     edit_category: Edit category
     delete_confirmation_message: Are you sure to delete a category?
-    info: Category keywords are phrases separated by semicolon which are for automatic operations classification. 
     no_statistics: There is no expenses
     date_validations: Date from should not be later than date to
 
@@ -46,9 +44,6 @@ en:
     expenses_per_month: Expenses per month
     expenses_to_day: "Expenses to %{day}. day of the month"
     incomings: Incomes
-    upload_file: Upload file
-    upload_file_success: File uploaded successfully
-    upload_file_failure: File upload failure
     save_failure: "Adding/updating operation failure. Are you sure that you filled amount and date?"
     info: You can add operations automatically as a HTML file or add by a form.
   

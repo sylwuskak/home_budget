@@ -41,17 +41,6 @@ class OperationsController < ApplicationController
     
   end
 
-  def upload
-    begin
-      file = params.require(:operations_file)
-      Tools::OperationFileImporter.import(file, current_user)
-      flash[:success] = I18n.t('operations.upload_file_success')
-    rescue => e
-      flash[:danger] = I18n.t('operations.upload_file_failure') + ": #{e.message}"
-    end
-    redirect_to operations_path
-  end
-
   private
   def operation_params
     permit_params = params.require(:operation).permit(:date, :type, :description, :amount, :category_id)

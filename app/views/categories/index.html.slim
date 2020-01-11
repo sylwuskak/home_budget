@@ -1,8 +1,6 @@
 .panel.panel-default
   .panel-heading
     = I18n.t('categories.index')
-    button.btn.btn-xs.custom-btn-lighter data-toggle="popover" data-placement="bottom" title=I18n.t('categories.info')
-      span.glyphicon.glyphicon-info-sign
     .btn-group.pull-right
       button.btn.btn-xs.custom-btn-lighter data-toggle="modal" data-target="#add_category" type="button"
         span.glyphicon.glyphicon-plus
@@ -11,8 +9,7 @@
       thead
         tr
           th width="25%" = I18n.t('categories.category_name') 
-          th width="15%" = I18n.t('categories.category_type') 
-          th width="45%" = I18n.t('categories.keyword') 
+          th width="65%" = I18n.t('categories.category_type') 
           th width="10%"
       tbody 
       - @categories.each do |category|
@@ -21,8 +18,6 @@
             = category.category_name
           td 
             = I18n.t("operations.#{category.category_type.downcase}") 
-          td 
-            = category.keyword
           td 
             .btn-group.pull-right
               button.btn.btn-xs.custom-btn data-toggle="modal" data-target="#category_edit_#{category.id}"
