@@ -3,5 +3,4 @@ class Category < ActiveRecord::Base
 
   has_many :operations, dependent: :destroy
   has_many :budgets, dependent: :destroy
-  has_many :sub_categories, dependent: :destroy
 end

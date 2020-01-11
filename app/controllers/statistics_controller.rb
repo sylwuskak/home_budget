@@ -4,7 +4,6 @@ class StatisticsController < ApplicationController
   
   def statistics
     @general_statistics = @statistic_creator&.general_statistics
-
   end
 
   def full_statistics_image

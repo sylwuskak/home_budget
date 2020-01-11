@@ -17,10 +17,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :sub_categories, only: [:create, :destroy, :update] do 
-  end
-
-
   resources :operations, only: [:create, :index, :destroy, :update] do
     collection do 
       post 'upload'

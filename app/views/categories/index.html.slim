@@ -24,7 +24,6 @@
     table.table.table-hover
       thead
         tr
-          th width="5%"
           th width="25%" = I18n.t('categories.category_name') 
           th width="15%" = I18n.t('categories.category_type') 
           th width="45%" = I18n.t('categories.keyword') 
@@ -32,9 +31,6 @@
       tbody 
       - @categories.each do |category|
         tr 
-          td
-            button.btn.btn-xs.custom-btn-lighter data-toggle="modal" data-target="#add_sub_category_#{category.id}" type="button"
-              span.glyphicon.glyphicon-plus
           td 
             = category.category_name
           td 
@@ -47,26 +43,9 @@
                 span.glyphicon.glyphicon-pencil
               =link_to category_path(category), class: 'btn btn-xs custom-btn', method: :delete, data: {confirm: I18n.t('categories.delete_confirmation_message')}, disabled: (@categories.where(category_type: category.category_type).length == 1 )
                 span.glyphicon.glyphicon-remove
-        - category.sub_categories.each do |s_cat|
-          tr 
-            td 
-            td
-              = s_cat.sub_category_name
-            td
-            td
-            td
-              .btn-group.pull-right
-                button.btn.btn-xs.custom-btn data-toggle="modal" data-target="#sub_category_edit_#{s_cat.id}"
-                  span.glyphicon.glyphicon-pencil
-                =link_to sub_category_path(s_cat), class: 'btn btn-xs custom-btn', method: :delete, data: {confirm: I18n.t('categories.delete_subcategory_confirmation_message')}, disabled: (@categories.where(category_type: category.category_type).length == 1 )
-                  span.glyphicon.glyphicon-remove
 
-        
 
-- @categories.each do |category|        
-  = render "add_sub_category", :category_id => category.id
 = render "add_category"
 = render "edit_forms"
-= render "sub_category_edit_forms"
 = render "edit_configuration"
 
