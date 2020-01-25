@@ -22,7 +22,7 @@ class OperationsController < ApplicationController
       flash[:danger] = I18n.t('operations.save_failure')
     end
 
-    redirect_to operations_path(page: params['page'].empty? ? 1 : params['page'])
+    redirect_to operations_path(page: params['page'].empty? ? 1 : params['page'], search_phrase: params[:search_phrase].empty? ? '' : params[:search_phrase] )
   end
 
   def destroy
@@ -37,7 +37,7 @@ class OperationsController < ApplicationController
     rescue => e
       flash[:danger] = I18n.t('operations.save_failure')
     end
-    redirect_to operations_path(page: params['page'].empty? ? 1 : params['page'])
+    redirect_to operations_path(page: params['page'].empty? ? 1 : params['page'], search_phrase: params[:search_phrase].empty? ? '' : params[:search_phrase])
     
   end
 
