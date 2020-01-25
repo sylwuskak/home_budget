@@ -74,14 +74,14 @@ def general_statistics
     photo_data = ''
     
     Dir.mktmpdir do |dir|
-      grouped_operations = @operations.select{|o| o.is_a? Expense}.group_by{|o| o.expense_type}
+      expense_type_grouped_operations = @operations.select{|o| o.is_a? Expense}.group_by{|o| o.expense_type}
 
-      if grouped_operations.empty?
+      if expense_type_grouped_operations.empty?
         return nil
       end
       
-      datasets = grouped_operations.map do |expense_type, operations|
-        [if expense_type.to_s.empty? ? 'none' : I18n.t("operations.expense_type.#{expense_type&.downcase}"), [operations.map{|o| o.amount}.sum]]
+      datasets = expense_type_grouped_operations.map do |expense_type, operations|
+        [expense_type.to_s.empty? ? 'none' : I18n.t("operations.expense_type.#{expense_type&.downcase}"), [operations.map{|o| o.amount}.sum]]
       end.sort_by{|o| -o[1][0]}
 
       g = Gruff::Pie.new
