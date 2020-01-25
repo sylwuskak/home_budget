@@ -81,7 +81,7 @@ def general_statistics
       end
       
       datasets = grouped_operations.map do |expense_type, operations|
-        [I18n.t("operations.expense_type.#{expense_type&.downcase}"), [operations.map{|o| o.amount}.sum]]
+        [if expense_type.to_s.empty? ? 'none' : I18n.t("operations.expense_type.#{expense_type&.downcase}"), [operations.map{|o| o.amount}.sum]]
       end.sort_by{|o| -o[1][0]}
 
       g = Gruff::Pie.new

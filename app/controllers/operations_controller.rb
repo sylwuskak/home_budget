@@ -5,7 +5,7 @@ class OperationsController < ApplicationController
     @operations = nil
 
     if params[:search_phrase].nil? 
-      @operations = current_user.operations.order(date: :desc).paginate(:page => params[:page], :per_page => 10)
+      @operations = current_user.operations.order(date: :desc, created_at: :desc).paginate(:page => params[:page], :per_page => 10)
     else
       search = params[:search_phrase]
       @operations = current_user.operations.where("description LIKE ? or amount = ? ", '%' + params[:search_phrase] + '%', params[:search_phrase].to_f).order(date: :desc).paginate(:page => params[:page], :per_page => 10)
