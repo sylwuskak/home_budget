@@ -70,6 +70,37 @@ def general_statistics
     photo_data
   end
 
+  def expense_type_statistics
+    photo_data = ''
+    
+    Dir.mktmpdir do |dir|
+      grouped_operations = @operations.select{|o| o.is_a? Expense}.group_by{|o| o.expense_type}
+
+      if grouped_operations.empty?
+        return nil
+      end
+      
+      datasets = grouped_operations.map do |expense_type, operations|
+        [I18n.t("operations.expense_type.#{expense_type&.downcase}"), [operations.map{|o| o.amount}.sum]]
+      end.sort_by{|o| -o[1][0]}
+
+      g = Gruff::Pie.new
+    
+      g.theme = @my_theme
+      g.title = I18n.t('operations.expenses')
+      datasets.each do |data|
+        g.data(data[0], data[1])
+      end
+
+      filename = "test-#{SecureRandom.hex(8)}.png"
+      filepath = Rails.root.join(dir, filename)
+      g.write(filepath)
+      photo_data = File.read(filepath)
+    end
+
+    photo_data
+  end
+
   def statistics_per_month
     photo_data = ''
 

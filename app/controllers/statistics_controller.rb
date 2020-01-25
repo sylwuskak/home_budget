@@ -22,6 +22,14 @@ class StatisticsController < ApplicationController
     send_data(photo_data, :filename => 'statistics_per_month.png', :type => 'image/png', :disposition => "inline")
   end
 
+  def expense_type_statistics_image
+    photo_data = @statistic_creator&.expense_type_statistics
+    if photo_data.nil?
+      return photo_data
+    end
+    send_data(photo_data, :filename => 'expense_type_statistics.png', :type => 'image/png', :disposition => "inline")
+  end
+
   def sum_statistics
     if params['date_to'].to_s.empty? 
       if params['date_from'].to_s.empty?

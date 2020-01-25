@@ -32,6 +32,10 @@ pl:
     amount: Kwota
     date: Data
     type: Typ
+    expense_type: 
+      label: Typ wydatku
+      necessity: Potrzeba
+      desire: Zachcianka
     category: Kategoria
     without_category: Bez kategorii
     description: Opis

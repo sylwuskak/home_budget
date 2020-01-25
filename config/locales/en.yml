@@ -29,6 +29,10 @@ en:
     amount: Amount
     date: Date
     type: Type
+    expense_type: 
+      label: Expense type
+      necessity: Necessity
+      desire: Desire 
     category: Category
     without_category: Without category
     description: Description

@@ -39,7 +39,8 @@
           th width="6%" = I18n.t('operations.type')
           th width="17%" = I18n.t('operations.category')
           th width="8%" = I18n.t('operations.amount')
-          th width="50%" = I18n.t('operations.description') 
+          th width="10%" = I18n.t('operations.expense_type.label') 
+          th width="40%" = I18n.t('operations.description')
           th width="6%"
       tbody 
         - @operations.each do |operation|
@@ -55,6 +56,9 @@
               - operation_class = 'incoming_amount'
             td class = operation_class
               = operation.amount.to_s.gsub('.', I18n.t('decimal_separator'))
+            td
+              - unless operation.expense_type.nil?
+                = I18n.t("operations.expense_type.#{operation.expense_type&.downcase}") 
             td 
               = operation.description
             td 

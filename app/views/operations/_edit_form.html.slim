@@ -5,6 +5,7 @@
         .modal-header 
           = I18n.t('operations.edit_operation')
         .modal-body
+          = hidden_field_tag 'page', params[:page]
           .row
             .col-md-6
                 .form-group
@@ -24,6 +25,12 @@
                 .form-group
                   = f.label :amount, I18n.t('operations.amount')
                   = f.text_field :amount, class: 'form-control'
+          - if operation.type.downcase == 'expense'
+            .row
+              .col-md-6
+                .form-group
+                  = f.label :expense_type, I18n.t('operations.expense_type.label')
+                  = f.select :expense_type, ['necessity', 'desire'].map{|o| [I18n.t("operations.expense_type.#{o.downcase}"), o]}, {}, {class: 'form-control'}
           .row
             .col-md-12
                 .form-group

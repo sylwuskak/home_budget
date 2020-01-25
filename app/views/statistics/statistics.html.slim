@@ -88,13 +88,16 @@
   - if @general_statistics[:expenses_sum] > 0
     - full_statistics_image_src = full_statistics_image_path(date_from: params[:date_from], date_to: params[:date_to])
     - statistics_per_month_image_src = statistics_per_month_image_path(date_from: params[:date_from], date_to: params[:date_to])
-  
+    - expense_type_statistics_image_src = expense_type_statistics_image_path(date_from: params[:date_from], date_to: params[:date_to])
+
     .row 
       .col-md-6
         img style="max-width:100%" src=full_statistics_image_src
       .col-md-6
         img style="max-width:100%" src=statistics_per_month_image_src
     .row 
+      .col-md-6
+        img style="max-width:100%" src=expense_type_statistics_image_src
       .col-md-6
         - if params[:date_from].split('-').last.to_i == Date.today.month
           - sum_statistics_src = sum_statistics_path(date_from: params[:date_from], date_to: params[:date_to])
