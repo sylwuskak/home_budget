@@ -21,7 +21,7 @@
             .col-md-6
                 .form-group
                   = f.label :category_id, t('operations.category')
-                  = f.select :category_id, current_user.categories.select{|c| c.category_type == type.camelize}.map{|c| [c.category_name, c.id]}.sort_by{|c| c[0]}, {}, {class: 'form-control'}
+                  = f.select :category_id, current_user.categories.select{|c| c.category_type == type.camelize && c.available}.map{|c| [c.category_name, c.id]}.sort_by{|c| c[0]}, {}, {class: 'form-control'}
             .col-md-6
                 .form-group
                   = f.label :amount, I18n.t('operations.amount')

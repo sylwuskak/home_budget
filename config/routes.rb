@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get 'calendar', to: 'calendar#show_calendar', as: 'calendar'
 
   resources :categories, only: [:create, :index, :destroy, :update] do 
+    post 'set_available'
+    post 'set_unavailable'
   end
 
   resources :operations, only: [:create, :index, :destroy, :update] do

@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  before_action :set_category, except: [:index, :create, :destroy]
 
   def index
     if user_signed_in?
@@ -20,8 +21,21 @@ class CategoriesController < ApplicationController
   end
 
   def update
-    @category = Category.find(params[:id])
     @category.update(category_edit_params)
+
+    redirect_to categories_path
+  end
+
+  def set_available
+    @category.available = true
+    @category.save!
+
+    redirect_to categories_path
+  end
+
+  def set_unavailable
+    @category.available = false
+    @category.save!
 
     redirect_to categories_path
   end
@@ -33,6 +47,10 @@ class CategoriesController < ApplicationController
 
   def category_edit_params
     params.require(:category).permit(:category_name)
+  end
+
+  def set_category
+    @category = Category.find(params[:id] || params[:category_id])
   end
 
 end

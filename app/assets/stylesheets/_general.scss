@@ -177,3 +177,11 @@ $custom-violet-super-light: #dbd0e5;
 .center {
   text-align: center;
 }
+
+.table-hover > tbody > tr.unavailable {
+  background-color: #FFF;
+  color: #999;
+  .btn-group .custom-btn { 
+    background-color: $custom-violet;
+  }
+}

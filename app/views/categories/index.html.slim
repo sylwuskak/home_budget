@@ -13,13 +13,21 @@
           th width="10%"
       tbody 
       - @categories.each do |category|
-        tr 
+        - klass = ""
+        - if !category.available then klass = "unavailable"
+        tr class="#{klass}" 
           td 
             = category.category_name
           td 
             = I18n.t("operations.#{category.category_type.downcase}") 
           td 
             .btn-group.pull-right
+              - if category.available
+                =link_to category_set_unavailable_path(category), class: 'btn btn-xs custom-btn', method: :post
+                  span.glyphicon.glyphicon-star
+              - else
+                =link_to category_set_available_path(category), class: 'btn btn-xs custom-btn', method: :post
+                  span.glyphicon.glyphicon-star-empty
               button.btn.btn-xs.custom-btn data-toggle="modal" data-target="#category_edit_#{category.id}"
                 span.glyphicon.glyphicon-pencil
               =link_to category_path(category), class: 'btn btn-xs custom-btn', method: :delete, data: {confirm: I18n.t('categories.delete_confirmation_message')}, disabled: (@categories.where(category_type: category.category_type).length == 1 )
