@@ -8,7 +8,7 @@
           .row
             = label_tag 'date', I18n.t('budgets.date'), class: 'control-label col-md-6'
             .col-md-6
-              = text_field_tag :date, nil, class: 'form-control datepicker-months', data: {provide: 'datepicker'}
+              = text_field_tag :date, nil, autocomplete: "off", class: 'form-control datepicker-months', data: {provide: 'datepicker'}
 
           - @budgets = @categories.sort_by{|c| c.category_name}.map{|c| Budget.new(category: c)}
           - @budgets.each do |budget|
@@ -17,7 +17,7 @@
               .row 
                 = bf.label :amount, budget.category.category_name, class: 'control-label col-md-6'
                 .col-md-6
-                  = bf.text_field :amount, class: 'form-control'
+                  = bf.text_field :amount, autocomplete: "off", class: 'form-control'
               
         .modal-footer
           button.btn.custom-btn type="submit" 
