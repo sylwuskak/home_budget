@@ -51,7 +51,7 @@ gem 'http_accept_language'
 
 gem 'devise', '~> 4.4.3'
 gem 'bootstrap-datepicker-rails', '~> 1.6', '>= 1.6.1.1'
-gem 'nokogiri', '~> 1.6', '>= 1.6.6.2'
+gem 'nokogiri', '~> 1.11'
 gem 'bootstrap-table-rails', '~> 1.12', '>= 1.12.1'
 gem 'gruff', '~> 0.7.0'
 gem 'simple_calendar', '~> 2.0', '>= 2.0.6'
