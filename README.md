@@ -2,26 +2,27 @@
 
 Budget Application
 
+## Installation process
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Install ruby with rbenv
 
-Things you may want to cover:
+rbenv install 2.5.1
+rbenv local 2.5.1
 
-* Ruby version
+# Install packages
+sudo apt-get install postgresql postgresql-contrib libpq-dev imagemagick libmagick++-dev nodejs
 
-* System dependencies
+# Create postgres user
+sudo -u postgres createuser -s postgresuser -P
 
-* Configuration
+# Install bundler
+gem install bundler
+bundle install
 
-* Database creation
+# Setup a database
+rake db:create
+rake db:migrate
 
-* Database initialization
+# Run rails and have fun!
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+rails s

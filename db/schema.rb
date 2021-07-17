@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20200818114640) do
     t.integer  "category_id"
     t.integer  "user_id",                                      null: false
     t.string   "expense_type"
-    t.datetime "created_at",   default: '2020-01-25 12:03:25', null: false
+    t.datetime "created_at",   default: '2021-07-17 06:44:13', null: false
     t.index ["category_id"], name: "index_operations_on_category_id", using: :btree
     t.index ["user_id"], name: "index_operations_on_user_id", using: :btree
   end
