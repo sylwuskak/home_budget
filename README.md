@@ -2,27 +2,27 @@
 
 Budget Application
 
-## Installation process
+# Installation process
 
-# Install ruby with rbenv
+## Install ruby with rbenv
 
 rbenv install 2.5.1
 rbenv local 2.5.1
 
-# Install packages
+## Install packages
 sudo apt-get install postgresql postgresql-contrib libpq-dev imagemagick libmagick++-dev nodejs
 
-# Create postgres user
+## Create postgres user
 sudo -u postgres createuser -s postgresuser -P
 
-# Install bundler
+## Install bundler
 gem install bundler
 bundle install
 
-# Setup a database
+## Setup a database
 rake db:create
 rake db:migrate
 
-# Run rails and have fun!
+## Run rails and have fun!
 
 rails s
