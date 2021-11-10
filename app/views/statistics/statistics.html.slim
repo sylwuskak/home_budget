@@ -99,6 +99,6 @@
       .col-md-6
         img style="max-width:100%" src=expense_type_statistics_image_src
       .col-md-6
-        - if params[:date_from].split('-').last.to_i == Date.today.month
+        - if params[:date_from].split('-').last.to_i == Date.today.month && params[:date_to].nil?
           - sum_statistics_src = sum_statistics_path(date_from: params[:date_from], date_to: params[:date_to])
           img style="max-width:100%" src=sum_statistics_src
