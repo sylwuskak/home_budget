@@ -120,7 +120,7 @@ def general_statistics
 
       @datasets = grouped_operations_per_month.map do |category, operations_hash|
         [category, all_months.map{|month| operations_hash[month].to_f} ] 
-      end
+      end.sort_by{|o| -o[1][0]}
 
       g = Gruff::SideStackedBar.new
       g.title = I18n.t('operations.expenses_per_month')
