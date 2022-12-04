@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     collection do 
       post 'budgets_create'
       post 'budgets_update'
+      patch 'budgets_copy'
       delete 'budgets_destroy'
     end
   end

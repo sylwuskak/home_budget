@@ -37,6 +37,22 @@ class BudgetsController < ApplicationController
     redirect_to budgets_path
   end
 
+  def budgets_copy
+    begin
+      current_user.budgets.select{|b| b.date == Date.parse(params["format"])}.each do |budget|
+        b = Budget.new
+        b.amount = budget.amount
+        b.category_id = budget.category_id
+        b.date = Date.today.beginning_of_month
+        b.user = current_user
+        b.save!
+      end
+    rescue => e
+      flash[:danger] = I18n.t('budgets.duplicates_error')
+    end
+    redirect_to budgets_path
+  end
+
   def update
     @budget = Budget.find(params[:id])
     @budget.update(budget_params)

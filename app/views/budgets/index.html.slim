@@ -35,6 +35,8 @@
               .btn-group.pull-right
                 button.btn.btn-xs.custom-btn data-toggle="modal" data-target="#budget_edit_#{date.to_s}"
                   span.glyphicon.glyphicon-pencil
+                =link_to budgets_copy_budgets_path(date), class: 'btn btn-xs custom-btn', method: :patch
+                  span.glyphicon.glyphicon-duplicate
                 =link_to budgets_destroy_budgets_path(date), class: 'btn btn-xs custom-btn', method: :delete, data: {confirm: I18n.t('budgets.delete_confirmation_message')}
                   span.glyphicon.glyphicon-remove
 = render "add_budget"
