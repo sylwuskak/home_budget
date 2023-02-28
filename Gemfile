@@ -2,7 +2,8 @@ source 'https://rubygems.org'
 ruby '2.7.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
+gem 'rails', '~> 5.1.7'
+
 # Use sqlite3 as the database for Active Record
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
@@ -54,7 +55,7 @@ gem 'bootstrap-datepicker-rails', '~> 1.6', '>= 1.6.1.1'
 gem 'nokogiri', '~> 1.6', '>= 1.6.6.2'
 gem 'bootstrap-table-rails', '~> 1.12', '>= 1.12.1'
 gem 'gruff', '~> 0.7.0'
-gem 'simple_calendar', '~> 2.0', '>= 2.0.6'
+gem 'simple_calendar', '~> 2.4', '>= 2.4.3'
 
 gem 'will_paginate', '~> 3.1', '>= 3.1.6'
 gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
