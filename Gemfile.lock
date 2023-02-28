@@ -67,10 +67,10 @@ GEM
     concurrent-ruby (1.2.2)
     crass (1.0.6)
     date (3.3.3)
-    devise (4.4.3)
+    devise (4.7.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
-      railties (>= 4.1.0, < 6.0)
+      railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
     diff-lcs (1.5.0)
@@ -248,7 +248,7 @@ DEPENDENCIES
   bootstrap-sass (~> 3.3.7)
   bootstrap-table-rails (~> 1.12, >= 1.12.1)
   coffee-rails (~> 4.2)
-  devise (~> 4.4.3)
+  devise (~> 4.7.1)
   gruff (~> 0.7.0)
   http_accept_language
   jbuilder (~> 2.5)
