@@ -45,7 +45,7 @@ end
 
 gem 'slim', '~> 3.0.7'
 gem 'slim-rails', '~> 3.1.1'
-gem 'bootstrap-sass', '~> 3.3.7'
+gem 'bootstrap-sass', '~> 3.4.1'
 
 gem 'active_link_to', '~> 1.0.3'
 gem 'http_accept_language'
