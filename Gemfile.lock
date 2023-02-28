@@ -133,7 +133,8 @@ GEM
       byebug (~> 11.0)
       pry (>= 0.13, < 0.15)
     public_suffix (5.0.1)
-    puma (3.12.6)
+    puma (4.3.12)
+      nio4r (~> 2.0)
     racc (1.6.2)
     rack (2.2.6.2)
     rack-test (2.0.2)
@@ -263,7 +264,7 @@ DEPENDENCIES
   nokogiri (~> 1.6, >= 1.6.6.2)
   pg (= 0.18.2)
   pry-byebug
-  puma (~> 3.0)
+  puma (~> 4.3)
   rails (~> 5.2, >= 5.2.8.1)
   rails_12factor (= 0.0.3)
   rspec (~> 3.0)
